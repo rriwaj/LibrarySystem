@@ -111,7 +111,7 @@ public class AddBookController implements Initializable {
 					.getText());
 			int numberOfCopies = Integer.parseInt(txtNumberOfCopies.getText());
 			Book newBook = new Book(isbn, title, maxCheckoutLength, authorsList);
-			if (numberOfCopies > 0) {
+			if (numberOfCopies > 1) {
 				for (int i = 0; i < numberOfCopies; i++) {
 					newBook.addCopy();
 				}

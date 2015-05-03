@@ -77,19 +77,6 @@ public class OverDueController implements Initializable {
 		book = dataAccessFacade.searchBook(txtBookISBN.getText());
 		// if book exists
 		if (book != null) {
-			// get all book copies
-			BookCopy[] bookCopies = book.getCopies();
-			List<BookCopy> availableBookCopies = new ArrayList<BookCopy>();
-			List<BookCopy> unAvailableBookCopies = new ArrayList<BookCopy>();
-			// List<BookCopy> overdueBookCopies = new ArrayList<BookCopy>();
-			for (int i = 0; i < bookCopies.length; i++) {
-				if (bookCopies[i].isAvailable()) {
-					availableBookCopies.add(bookCopies[i]);
-				} else {
-					unAvailableBookCopies.add(bookCopies[i]);
-				}
-			}
-
 			// get all library members as each library member has its own
 			// checkout record
 			HashMap<String, LibraryMember> members = dataAccessFacade
