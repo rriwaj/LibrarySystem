@@ -1,4 +1,4 @@
-# Library-System-MPP-Project-
+# Library-System(MPP Project)
 A simple library management system created for fulfillment of Modern Programming Practices (JAVA) Course
 
 # Technology Used:
