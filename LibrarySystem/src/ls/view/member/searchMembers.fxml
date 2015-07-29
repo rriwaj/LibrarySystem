@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="Content" minHeight="0.0" minWidth="0.0"
+	prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
+	stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.MemberController">
+	<children>
+		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="560.0"
+			styleClass="pane-frame">
+			<children>
+				<GridPane depthTest="INHERIT" layoutX="24.0" layoutY="24.0"
+					prefHeight="105.0" prefWidth="524.0">
+					<children>
+						<Label text="ID Number" GridPane.columnIndex="0"
+							GridPane.rowIndex="0">
+							<font>
+								<Font size="14.0" />
+							</font>
+						</Label>
+						<TextField GridPane.columnIndex="1" GridPane.rowIndex="0" />
+						<Button fx:id="btnSearch" mnemonicParsing="false" onAction="#"
+							text="Search" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+							GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+					</children>
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+							prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+							prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+							prefWidth="100.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0"
+							vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0"
+							vgrow="SOMETIMES" />
+					</rowConstraints>
+				</GridPane>
+				<Label layoutX="10.0" layoutY="-10.0" prefHeight="17.0"
+					prefWidth="82.0" style="-fx-background-color: white;" text=" Search Criteria" />
+				<Label fx:id="lblMessage" layoutX="24.0" layoutY="16.0" />
+			</children>
+		</Pane>
+		<Pane layoutX="14.0" layoutY="183.0" prefHeight="279.0"
+			prefWidth="560.0" styleClass="pane-frame">
+			<children>
+				<TableView layoutX="22.0" layoutY="21.0" prefHeight="200.0"
+					prefWidth="524.0">
+					<columns>
+						<TableColumn prefWidth="87.0" text="ID Number" />
+						<TableColumn prefWidth="127.0" text="Name" />
+						<TableColumn prefWidth="87.0" text="Address" />
+						<TableColumn prefWidth="130.0" text="Phone" />
+					</columns>
+				</TableView>
+				<Label layoutX="11.0" layoutY="-10.0" prefHeight="17.0"
+					prefWidth="65.0" style="-fx-background-color: white;" text=" Table View" />
+				<Button fx:id="btnAddNew" layoutX="480.0" layoutY="234.0"
+					mnemonicParsing="false" onAction="#" text="Add New" />
+			</children>
+		</Pane>
+	</children>
+</AnchorPane>
