@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane minWidth="322.9999000000025" prefHeight="186.0" prefWidth="322.9999000000025" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <!-- TODO Add Nodes -->
+  <children>
+    <Label layoutX="55.0" layoutY="50.0" text="UserId">
+      <font>
+        <Font name="System Bold" size="13.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="44.0" layoutY="80.0" text="Password" />
+    <TextField fx:id="txtUserId" layoutX="142.0" layoutY="47.0" prefWidth="124.0" />
+    <PasswordField fx:id="txtPasswordField" layoutX="142.0" layoutY="77.0" prefHeight="22.0" prefWidth="124.0" />
+    <Button fx:id="btnLogin" font="$x1" layoutX="144.0" layoutY="125.0" mnemonicParsing="false" text="Login" />
+  </children>
+</AnchorPane>
