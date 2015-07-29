@@ -33,7 +33,7 @@ public class Main extends Application {
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class
-					.getResource("../view/menu/LibraryMemberMain.fxml"));
+					.getResource("../view/menu/member.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
 			// Show the scene containing the root layout.
@@ -50,7 +50,7 @@ public class Main extends Application {
 			// Load CheckoutBook.fxml
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class
-					.getResource("../view/checkout/searchAllCheckouts.fxml"));
+					.getResource("../view/checkout/checkoutBook.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 
 			// Set CheckoutBook into the center of root layout.

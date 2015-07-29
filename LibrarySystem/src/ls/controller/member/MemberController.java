@@ -1,4 +1,4 @@
-package ls.controller;
+package ls.controller.member;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane center="$null" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ls.controller.checkout.CheckoutBookController">
+  <!-- TODO Add Nodes -->
+  <top>
+    <HBox>
+      <Hyperlink text="CheckoutBook" onAction="#mSearchByISBNClick" />
+      <Hyperlink text="SearchByISBN" />
+    </HBox>
+  </top>
+</BorderPane>

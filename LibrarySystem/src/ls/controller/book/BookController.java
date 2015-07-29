@@ -1,4 +1,4 @@
-package ls.controller;
+package ls.controller.book;
 
 public class BookController {
 
