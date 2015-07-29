@@ -36,7 +36,7 @@ public class CheckoutController implements Initializable {
 			//
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class
-					.getResource("../view/BookCopyNotAvailable.fxml"));
+					.getResource("../view/checkout/BookCopyNotAvailable.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 
 			rootLayout.getChildren().clear();
