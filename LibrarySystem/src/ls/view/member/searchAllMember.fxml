@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity"
 	minHeight="-Infinity" minWidth="-Infinity" prefHeight="578.0"
-	prefWidth="587.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8"
+	prefWidth="587.0" stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8"
 	xmlns:fx="http://javafx.com/fxml/1">
 	<children>
 		<AnchorPane id="Content" layoutY="24.0" minHeight="0.0"
