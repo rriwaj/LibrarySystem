@@ -20,3 +20,7 @@
 .pane-frame {
 	-fx-border-color: gray;
 }
+
+.anchor-pane{
+	-fx-background-color: white;
+}

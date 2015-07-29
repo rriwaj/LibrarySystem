@@ -50,7 +50,7 @@ public class Main extends Application {
 			// Load CheckoutBook.fxml
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class
-					.getResource("../view/checkout/CheckoutBook.fxml"));
+					.getResource("../view/checkout/searchAllCheckouts.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 
 			// Set CheckoutBook into the center of root layout.
