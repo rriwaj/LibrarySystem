@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.Node?>
 
-<BorderPane center="$null" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ls.controller.checkout.CheckoutBookController">
-  <!-- TODO Add Nodes -->
-  <top>
-    <HBox>
-      <Hyperlink text="CheckoutBook" onAction="#mSearchByISBNClick" />
-      <Hyperlink text="SearchByISBN" />
-    </HBox>
-  </top>
+<BorderPane prefHeight="400.0" prefWidth="600.0"
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+	fx:controller="ls.controller.menu.member" fx:id="rootLayout">
+	<top>
+		<HBox prefHeight="50.0">
+			<Hyperlink text="Checkout Book" onAction="#checkoutBookClick"></Hyperlink>
+			<Hyperlink text="Search By ISBN" onAction="#searchByISBNClick"></Hyperlink>
+		</HBox>
+	</top>
+	<center>
+		<AnchorPane prefHeight="300.0" prefWidth="600.0"
+			xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+			fx:id="bodyLayout">
+			<children>
+			</children>
+		</AnchorPane>
+	</center>
 </BorderPane>

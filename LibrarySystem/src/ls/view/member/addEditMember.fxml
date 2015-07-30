@@ -12,7 +12,7 @@
 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0"
 	prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
 	stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.MemberController">
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.MemberController">
 	<children>
 		<Pane layoutX="14.0" layoutY="26.0" prefHeight="489.0" prefWidth="560.0"
 			styleClass="pane-frame">
@@ -31,10 +31,10 @@
 						<TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
 						<TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
 						<TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
-						<Button fx:id="btnSave" mnemonicParsing="false" onAction="#"
-							prefHeight="25.0" prefWidth="97.0" text="Save"
-							GridPane.columnIndex="2" GridPane.halignment="RIGHT"
-							GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+						<Button fx:id="btnSave" mnemonicParsing="false" prefHeight="25.0"
+							prefWidth="97.0" text="Save" GridPane.columnIndex="2"
+							GridPane.halignment="RIGHT" GridPane.rowIndex="7"
+							GridPane.valignment="CENTER" />
 						<ChoiceBox prefHeight="25.0" prefWidth="180.0"
 							GridPane.columnIndex="1" GridPane.rowIndex="4" />
 						<Label text="First Name" />

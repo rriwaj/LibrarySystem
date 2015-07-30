@@ -46,27 +46,9 @@ public class CheckoutBookController implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
-	@FXML
-	public void mSearchByISBNClick() {
-		try {
-			lblMessage.setText("Here");
-//			FXMLLoader loader = new FXMLLoader();
-//			loader.setLocation(Main.class
-//					.getResource("../view/checkout/searchAllCheckouts.fxml"));
-//			AnchorPane checkoutBook;
-//			checkoutBook = (AnchorPane) loader.load();
-//			rootLayout.getChildren().clear();
-//			rootLayout.getChildren().setAll(checkoutBook);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 	// initilize view before load
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+
 	}
 }

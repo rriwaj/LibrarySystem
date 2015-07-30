@@ -15,13 +15,15 @@ public class Main extends Application {
 	private Stage primaryStage;
 	@FXML
 	private BorderPane rootLayout;
+	@FXML
+	private AnchorPane anchorPane;
 
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		primaryStage.setTitle("Library System");
 		initRootLayout();
-		showCheckOutBook();
+		// showCheckOutBook();
 	}
 
 	public static void main(String[] args) {
@@ -33,7 +35,7 @@ public class Main extends Application {
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class
-					.getResource("../view/menu/member.fxml"));
+					.getResource("../view/menu/administrator.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
 			// Show the scene containing the root layout.
@@ -45,21 +47,21 @@ public class Main extends Application {
 		}
 	}
 
-	public void showCheckOutBook() {
-		try {
-			// Load CheckoutBook.fxml
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class
-					.getResource("../view/checkout/checkoutBook.fxml"));
-			AnchorPane checkoutBook = (AnchorPane) loader.load();
-
-			// Set CheckoutBook into the center of root layout.
-			rootLayout.setCenter(checkoutBook);
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	//
+	// public void showCheckOutBook() {
+	// try {
+	// // Load CheckoutBook.fxml
+	// FXMLLoader loader = new FXMLLoader();
+	// loader.setLocation(Main.class
+	// .getResource("../view/checkout/checkoutBook.fxml"));
+	// AnchorPane checkoutBook = (AnchorPane) loader.load();
+	//
+	// //anchorPane.getChildren().add(checkoutBook);
+	//
+	// } catch (IOException e) {
+	// e.printStackTrace();
+	// }
+	// }
 
 	public Stage getPrimaryStage() {
 		return primaryStage;
