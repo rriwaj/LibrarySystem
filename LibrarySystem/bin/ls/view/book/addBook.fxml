@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="401.0" prefWidth="437.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ls.controller.book.AddBookController">
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+	fx:controller="ls.controller.book.AddBookController">
 	<!-- TODO Add Nodes -->
 	<children>
 		<GridPane layoutX="59.0" layoutY="61.0" prefWidth="319.0">
@@ -29,7 +30,9 @@
 					GridPane.columnIndex="1" GridPane.rowIndex="3" />
 				<TextField fx:id="txtNumberOfCopies" prefWidth="200.0"
 					GridPane.columnIndex="1" GridPane.rowIndex="4" />
-				<Button fx:id="btnAuthor" mnemonicParsing="false" prefWidth="149.0"
+					<Label fx:id="lblMessage" text="ISBN" GridPane.columnIndex="0"
+					GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+				<Button mnemonicParsing="false" prefWidth="149.0"
 					text="Add Author" GridPane.columnIndex="1" GridPane.halignment="CENTER"
 					GridPane.rowIndex="2" onAction="#btnAuthorClick" />
 			</children>
@@ -53,6 +56,6 @@
 			</rowConstraints>
 		</GridPane>
 		<Button fx:id="btnSave" layoutX="222.0" layoutY="271.0"
-			mnemonicParsing="false" prefHeight="48.0" prefWidth="77.0" text="Save" />
+			mnemonicParsing="false" prefHeight="48.0" prefWidth="77.0" text="Save"  onAction="#btnSaveClick"/>
 	</children>
 </AnchorPane>
