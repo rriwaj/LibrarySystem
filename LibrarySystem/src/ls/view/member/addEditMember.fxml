@@ -9,8 +9,13 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
+<<<<<<< Updated upstream
 <AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
 	minWidth="0.0" prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
+=======
+<AnchorPane fx:id="anchorPaneContent" minHeight="0.0" minWidth="0.0"
+	prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
+>>>>>>> Stashed changes
 	stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8"
 	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.MemberController">
 	<children>
