@@ -1,40 +1,25 @@
 package ls.controller.menu;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
 import ls.controller.Main;
 
-public class member implements Initializable {
-	@FXML
-	private BorderPane rootLayout;
-	@FXML
-	private AnchorPane bodyLayout;
-	private final String rootUrl = "../view/checkout/";
+public class BothController extends AdministratorController {
+	final String rootUrl = "../view/checkout/";
 
 	@FXML
-	public void searchByISBNClick() {
+	private void searchByISBNClick() {
 		renderSearchByISBNView();
 	}
 
 	@FXML
-	public void checkoutBookClick() {
+	private void checkoutBookClick() {
 		renderCheckoutBookView();
 	}
 
-	// initialize view before load
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// load CheckoutBook Form initially
-		renderCheckoutBookView();
-	}
-
-	// Helper Methods
 	private void renderCheckoutBookView() {
 		try {
 			bodyLayout.getChildren().clear();
