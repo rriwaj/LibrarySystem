@@ -7,14 +7,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 import ls.controller.Main;
 
 public class CheckoutRecordController implements Initializable {
@@ -42,7 +39,7 @@ public class CheckoutRecordController implements Initializable {
 		System.out.println("searchCheckoutRecordsByMemberId");
 	}
 
-	public void printCheckoutRecordEntries() throws IOException {
+	public void printCheckoutRecordEntries() {
 
 		// Scene scene = new Scene(rootLayout);
 		// primaryStage.setScene(scene);
@@ -50,18 +47,20 @@ public class CheckoutRecordController implements Initializable {
 
 		System.out.println("printCheckoutRecordEntries");
 
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class
-				.getResource("../view/checkout/searchBookCheckoutRecordEntries.fxml"));
-		AnchorPane checkoutBook = (AnchorPane) loader.load();
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class
+					.getResource("../view/checkout/searchBookCheckoutRecordEntries.fxml"));
+			AnchorPane checkoutBook = (AnchorPane) loader.load();
 
-		anchorPaneContent = checkoutBook;
+			anchorPaneContent.getChildren().add(checkoutBook);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
+		// anotehr very lazy way to change content
 		// BorderPane rootLayout = (BorderPane) lblMessage.getScene().getRoot();
-		// Scene scene = new Scene(rootLayout);
-		// tempBorderPane.setCenter(checkoutBook);
-		// Stage stage = (Stage) anchorPaneContent.getScene().getWindow();
-
 		// rootLayout.setCenter(checkoutBook);
 
 	}

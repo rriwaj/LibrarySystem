@@ -9,8 +9,8 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="Content" minHeight="0.0" minWidth="0.0"
-	prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
+<AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
+	minWidth="0.0" prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
 	stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8"
 	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.MemberController">
 	<children>
@@ -35,6 +35,10 @@
 							prefWidth="97.0" text="Save" GridPane.columnIndex="2"
 							GridPane.halignment="RIGHT" GridPane.rowIndex="7"
 							GridPane.valignment="CENTER" />
+						<Button fx:id="btnSave" mnemonicParsing="false" onAction="#applySaveMember"
+							prefHeight="25.0" prefWidth="97.0" text="Save"
+							GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+							GridPane.rowIndex="7" GridPane.valignment="CENTER" />
 						<ChoiceBox prefHeight="25.0" prefWidth="180.0"
 							GridPane.columnIndex="1" GridPane.rowIndex="4" />
 						<Label text="First Name" />
