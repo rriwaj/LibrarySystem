@@ -2,8 +2,6 @@ package ls.model;
 
 import java.util.List;
 
-import dataaccess.DataAccess;
-import dataaccess.DataAccessFacade;
 
 public interface ControllerInterface {
 	public void checkoutBook(String memberId, String isbn) throws LibrarySystemException;

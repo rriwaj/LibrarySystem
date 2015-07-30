@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="401.0" prefWidth="437.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ls.controller.book.AddBookController">
 	<!-- TODO Add Nodes -->
 	<children>
 		<GridPane layoutX="59.0" layoutY="61.0" prefWidth="319.0">
@@ -31,7 +31,7 @@
 					GridPane.columnIndex="1" GridPane.rowIndex="4" />
 				<Button fx:id="btnAuthor" mnemonicParsing="false" prefWidth="149.0"
 					text="Add Author" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-					GridPane.rowIndex="2" />
+					GridPane.rowIndex="2" onAction="#btnAuthorClick" />
 			</children>
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"

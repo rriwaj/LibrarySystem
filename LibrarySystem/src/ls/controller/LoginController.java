@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -30,7 +29,7 @@ public class LoginController {
 				// Load root layout from fxml file.
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(Main.class
-						.getResource("../view/menu/member.fxml"));
+						.getResource("../view/menu/both.fxml"));
 				BorderPane root;
 				root = (BorderPane) loader.load();
 				// Show the scene containing the root layout.

@@ -23,7 +23,6 @@ public class Utility {
 			}
 		}
 	}
-
 	public static void showAlertBox(String message) {
 		Alert a = new Alert(AlertType.INFORMATION);
 		a.setTitle("My Title");
