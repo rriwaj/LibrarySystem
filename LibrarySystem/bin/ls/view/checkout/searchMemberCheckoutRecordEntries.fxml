@@ -9,27 +9,30 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0"
-	prefHeight="554.0" prefWidth="587.0" styleClass="anchor-pane"
+<AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
+	minWidth="0.0" prefHeight="554.0" prefWidth="593.0" styleClass="anchor-pane"
 	stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.SearchMemberController">
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.checkout.CheckoutRecordController">
 	<children>
-		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="560.0"
+		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="567.0"
 			styleClass="pane-frame">
 			<children>
 				<GridPane depthTest="INHERIT" layoutX="24.0" layoutY="24.0"
 					prefHeight="105.0" prefWidth="524.0">
 					<children>
-						<Label text="ID Number" GridPane.columnIndex="0"
+						<Label text="Member ID" GridPane.columnIndex="0"
 							GridPane.rowIndex="0">
 							<font>
 								<Font size="14.0" />
 							</font>
 						</Label>
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="0" />
-						<Button fx:id="btnSearch" mnemonicParsing="false" onAction="#searchMembers"
-							text="Search" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
-							GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+						<TextField fx:id="txtMemberId" GridPane.columnIndex="1"
+							GridPane.rowIndex="0" />
+						<Button fx:id="btnSearch" mnemonicParsing="false"
+							onAction="#searchCheckoutRecordsByMemberId" prefHeight="25.0"
+							prefWidth="79.0" text="Search" GridPane.columnIndex="2"
+							GridPane.halignment="RIGHT" GridPane.rowIndex="1"
+							GridPane.valignment="CENTER" />
 					</children>
 					<columnConstraints>
 						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
@@ -48,25 +51,25 @@
 				</GridPane>
 				<Label layoutX="10.0" layoutY="-10.0" prefHeight="17.0"
 					prefWidth="82.0" style="-fx-background-color: white;" text=" Search Criteria" />
-				<Label fx:id="lblMesssage" id="lblMsg" layoutX="24.0" layoutY="16.0" />
+				<Label fx:id="lblMessage" layoutX="24.0" layoutY="16.0" />
 			</children>
 		</Pane>
-		<Pane layoutX="14.0" layoutY="183.0" prefHeight="279.0"
-			prefWidth="560.0" styleClass="pane-frame">
+		<Pane visible="false" fx:id="paneTableView" layoutX="14.0"
+			layoutY="183.0" prefHeight="286.0" prefWidth="567.0" styleClass="pane-frame">
 			<children>
-				<TableView layoutX="22.0" layoutY="21.0" prefHeight="200.0"
+				<TableView layoutX="22.0" layoutY="19.0" prefHeight="200.0"
 					prefWidth="524.0">
 					<columns>
-						<TableColumn prefWidth="87.0" text="ID Number" />
-						<TableColumn prefWidth="127.0" text="Name" />
-						<TableColumn prefWidth="87.0" text="Address" />
-						<TableColumn prefWidth="130.0" text="Phone" />
+						<TableColumn prefWidth="150.0" text="Copy Number" />
+						<TableColumn prefWidth="150.0" text="Due Date" />
+						<TableColumn prefWidth="150.0" text="Checkout Date" />
 					</columns>
 				</TableView>
 				<Label layoutX="11.0" layoutY="-10.0" prefHeight="17.0"
 					prefWidth="65.0" style="-fx-background-color: white;" text=" Table View" />
-				<Button fx:id="btnAddNew" layoutX="480.0" layoutY="234.0"
-					mnemonicParsing="false" onAction="#goToAddMember" text="Add New" />
+				<Button fx:id="btnPrint" layoutX="467.0" layoutY="235.0"
+					mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Print"
+					onAction="#printCheckoutRecordEntries" />
 			</children>
 		</Pane>
 	</children>

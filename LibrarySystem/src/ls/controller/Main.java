@@ -14,7 +14,7 @@ public class Main extends Application {
 
 	private Stage primaryStage;
 	@FXML
-	private BorderPane rootLayout;
+	private AnchorPane rootLayout;
 	@FXML
 	private AnchorPane anchorPane;
 
@@ -35,9 +35,8 @@ public class Main extends Application {
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(Main.class
-					.getResource("../view/menu/administrator.fxml"));
-			rootLayout = (BorderPane) loader.load();
-
+					.getResource("../view/Login.fxml"));
+			rootLayout = (AnchorPane) loader.load();
 			// Show the scene containing the root layout.
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
