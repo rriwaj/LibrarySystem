@@ -4,10 +4,10 @@
 	-fx-font-size: 14.0px;
 } */
 
-.pane-frame {
-	-fx-border-color: gray;
+.border-pane{
+	-fx-background-color: white;
 }
 
-.anchor-pane{
-	-fx-background-color: white;
+.pane-frame {
+	-fx-border-color: gray;
 }

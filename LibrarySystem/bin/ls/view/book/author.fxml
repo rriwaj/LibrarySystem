@@ -1,59 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="473.0" prefWidth="460.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ls.controller.book.AuthorController">
+<AnchorPane prefHeight="572.0" prefWidth="446.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ls.controller.book.AuthorController">
 	<!-- TODO Add Nodes -->
 	<children>
-		<GridPane layoutX="44.0" layoutY="44.0" prefWidth="352.0">
+		<GridPane hgap="10.0" layoutX="45.0" layoutY="44.0"
+			prefHeight="494.0" prefWidth="351.0" vgap="10.0">
 			<children>
 				<Label text="First Name" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+					GridPane.rowIndex="0" />
 				<Label text="Last Name" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+					GridPane.rowIndex="1" />
 				<Label text="Street" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+					GridPane.rowIndex="2" />
 				<Label prefWidth="37.0" text="City" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+					GridPane.rowIndex="3" />
 				<Label text="State" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-				<Label text="Bio" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="9" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="0" fx:id="txtFirstName" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="1" fx:id="txtLastName" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="2" fx:id="txtStreet" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="3" fx:id="txtCity" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="5" fx:id="txtState" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="4" fx:id="txtBio" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="6" fx:id="txtZip" />
-				<TextField prefWidth="200.0" GridPane.columnIndex="1"
-					GridPane.rowIndex="7" fx:id="txtPhone" />
-				<TextField prefHeight="116.0" prefWidth="176.00009999999747"
-					GridPane.columnIndex="1" GridPane.rowIndex="9" fx:id="Credentials" />
-				<Label text="Zip" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+					GridPane.rowIndex="4" />
+				<Label text="Bio" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+				<TextField fx:id="txtFirstName" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="0" />
+				<TextField fx:id="txtLastName" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<TextField fx:id="txtStreet" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="2" />
+				<TextField fx:id="txtCity" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<TextField fx:id="txtState" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="5" />
+				<TextField fx:id="txtBio" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="4" />
+				<TextField fx:id="txtZip" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="6" />
+				<TextField fx:id="txtPhone" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="7" />
+				<Label text="Zip" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 				<Label text="Phone" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+					GridPane.rowIndex="6" />
 				<Label prefWidth="78.0" text="Credentials"
-					GridPane.columnIndex="0" GridPane.halignment="CENTER"
-					GridPane.rowIndex="7" />
+					GridPane.columnIndex="0" GridPane.rowIndex="7" />
+				<Button fx:id="btnSave" mnemonicParsing="false" onAction="#btnSaveClick"
+					prefHeight="31.0" prefWidth="86.0" text="Save"
+					GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="10" />
+				<TextArea prefHeight="200.0" prefWidth="200.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="8" />
 			</children>
 			<columnConstraints>
-				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-					prefWidth="100.0" />
-				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-					prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="165.0"
+					minWidth="10.0" prefWidth="120.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="238.0"
+					minWidth="10.0" prefWidth="222.0" />
 			</columnConstraints>
 			<rowConstraints>
 				<RowConstraints maxHeight="30.0" minHeight="10.0"
@@ -72,13 +76,13 @@
 					prefHeight="30.0" vgrow="SOMETIMES" />
 				<RowConstraints maxHeight="30.0" minHeight="10.0"
 					prefHeight="30.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="29.0" minHeight="9.0"
-					prefHeight="9.0" vgrow="SOMETIMES" />
-				<RowConstraints maxHeight="51.0" minHeight="10.0"
-					prefHeight="51.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="70.0" minHeight="10.0"
+					prefHeight="70.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="0.0" minHeight="0.0"
+					prefHeight="0.0" vgrow="SOMETIMES" />
+				<RowConstraints maxHeight="100.0" minHeight="10.0"
+					prefHeight="50.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 		</GridPane>
-		<Button layoutX="188.0" layoutY="393.0" mnemonicParsing="false"
-			prefHeight="30.0" text="Save" fx:id="btnSave" onAction="#btnSaveClick" />
 	</children>
 </AnchorPane>
