@@ -10,6 +10,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import ls.controller.utility.Utility;
+import ls.dataaccess.Auth;
 
 public class LoginController {
 	@FXML
@@ -24,21 +25,38 @@ public class LoginController {
 	@FXML
 	private void btnLoginClick() {
 		try {
-			if (txtUserId.getText().length() > 0) {
-				Stage st = (Stage) rootLayout.getScene().getWindow();
-				// Load root layout from fxml file.
-				FXMLLoader loader = new FXMLLoader();
-				loader.setLocation(Main.class
-						.getResource("../view/menu/both.fxml"));
-				BorderPane root;
-				root = (BorderPane) loader.load();
-				// Show the scene containing the root layout.
-				Scene scene = new Scene(root);
-				st.setScene(scene);
-				st.show();
+			if (txtUserId.getText().length() > 0
+					&& txtPassword.getText().length() > 0) {
+
+				Auth auth = Utility.getDataAcessFacadeInstance().login(
+						txtUserId.getText(), txtPassword.getText());
+				String menuUrl;
+				if (auth != null) {
+					switch (auth) {
+					case ADMIN:
+						menuUrl = "../view/menu/administrator.fxml";
+						break;
+					case BOTH:
+						menuUrl = "../view/menu/both.fxml";
+						break;
+					default:
+						menuUrl = "../view/menu/member.fxml";
+					}
+
+					Stage st = (Stage) rootLayout.getScene().getWindow();
+					// Load root layout from fxml file.
+					FXMLLoader loader = new FXMLLoader();
+					loader.setLocation(Main.class.getResource(menuUrl));
+					BorderPane root;
+					root = (BorderPane) loader.load();
+					// Show the scene containing the root layout.
+					Scene scene = new Scene(root);
+					st.setScene(scene);
+					st.show();
+				}
+				lblMessage.setText("Login Failed. Invalid UserName/Password");
 			} else {
-				lblMessage.setText("Invalid Username and password");
-				Utility.clearAllTextBoxFromAnchorPane(rootLayout);
+				lblMessage.setText("Please enter Username/Password");
 			}
 
 		} catch (IOException e) {

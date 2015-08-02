@@ -40,7 +40,7 @@
 		</HBox>
 	</top>
 	<center>
-		<AnchorPane fx:id="bodyLayout" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
+		<AnchorPane fx:id="anchorPane" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
 			<children>
 			</children>
 		</AnchorPane>

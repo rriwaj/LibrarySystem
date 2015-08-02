@@ -12,6 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import ls.controller.Main;
+import ls.controller.utility.Utility;
+import ls.dataaccess.DataAccessFacade;
 
 public class AddBookController implements Initializable {
 	@FXML
@@ -24,9 +26,19 @@ public class AddBookController implements Initializable {
 	@FXML
 	TextField txtISBN;
 
+	DataAccessFacade dataAccessFacade;
+
 	@FXML
 	private void btnAuthorClick() {
 		try {
+
+			// make private textbox values
+			// call dataaccessfacade from utility class ref login
+			dataAccessFacade = Utility.getDataAcessFacadeInstance();
+			// create Book object
+			// save book object to saveNewBook of DataAccessFacade
+			dataAccessFacade.saveNewBook(null);
+
 			Stage newStage = new Stage();
 			// Load root layout from fxml file.
 			FXMLLoader loader = new FXMLLoader();

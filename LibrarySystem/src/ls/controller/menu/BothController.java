@@ -7,11 +7,11 @@ public class BothController extends AdministratorController {
 
 	@FXML
 	private void searchByISBNClick() {
-		Utility.loadSearchByISBNView(bodyLayout);
+		Utility.loadSearchByISBNView(anchorPane);
 	}
 
 	@FXML
 	private void checkoutBookClick() {
-		Utility.loadCheckoutBookView(bodyLayout);
+		Utility.loadCheckoutBookView(anchorPane);
 	}
 }

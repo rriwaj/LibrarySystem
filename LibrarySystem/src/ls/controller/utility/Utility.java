@@ -9,8 +9,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import ls.controller.Main;
+import ls.dataaccess.DataAccessFacade;
 
 public class Utility {
+
+	private static DataAccessFacade dataAccess;
+
+	public static DataAccessFacade getDataAcessFacadeInstance() {
+		if (dataAccess == null) {
+			dataAccess = new DataAccessFacade();
+		}
+		return dataAccess;
+	}
 
 	public static String[] getStates() {
 		return new String[] { "IA", "FL", "CA", "ID", "TX" };
@@ -23,6 +33,7 @@ public class Utility {
 			}
 		}
 	}
+
 	public static void showAlertBox(String message) {
 		Alert a = new Alert(AlertType.INFORMATION);
 		a.setTitle("My Title");
@@ -45,6 +56,20 @@ public class Utility {
 
 	// Helper Methods
 	public static void loadAddEditMemberView(AnchorPane anchorPane) {
+		try {
+			anchorPane.getChildren().clear();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class
+					.getResource("../view/member/addEditMember.fxml"));
+			AnchorPane checkoutBook = (AnchorPane) loader.load();
+			anchorPane.getChildren().add(checkoutBook);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	// Helper Methods
+	public static void loadSearchMembersView(AnchorPane anchorPane) {
 		try {
 			anchorPane.getChildren().clear();
 			FXMLLoader loader = new FXMLLoader();

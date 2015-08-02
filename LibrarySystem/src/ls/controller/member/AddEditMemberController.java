@@ -22,6 +22,7 @@ public class AddEditMemberController implements Initializable {
 	@FXML
 	private Label hdnText;
 
+	@FXML
 	public void applySaveMember() {
 
 		Utility.showAlertBox("New Member Added");
