@@ -1,6 +1,7 @@
 *.class
 .metadata/
 .recommenders/
+LibrarySystem/bin/
 RemoteSystemsTempFiles/
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
