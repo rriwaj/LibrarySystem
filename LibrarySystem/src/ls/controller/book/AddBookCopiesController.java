@@ -23,7 +23,8 @@ public class AddBookCopiesController implements Initializable {
 	private AnchorPane rootLayout;
 
 	public void btnBookCopyadded() {
-		System.out.println("jsdfbnkjs");
+//		System.out.println("jsdfbnkjs");
+		
 	}
 
 	@Override

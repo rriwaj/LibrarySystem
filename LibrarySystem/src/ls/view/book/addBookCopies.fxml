@@ -5,12 +5,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane  fx:controller="ls.controller.book.AddBookCopiesController" prefHeight="241.0" prefWidth="384.0000999999975" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-<children>
-    <Label layoutX="133.0" layoutY="89.0" text="ISBN" />
-    <Label layoutX="44.0" layoutY="129.0" text="Number Of Copies" />
-    <TextField layoutX="184.0" layoutY="89.0" prefWidth="117.0" fx:id="txtISBNNO"/>
-    <TextField layoutX="184.0" layoutY="129.0" prefWidth="117.0" fx:id="txtNumberOfCopies"/>
-   <Button layoutX="184.0" layoutY="182.0" mnemonicParsing="false" text="Add" fx:id="btnAdd" onAction="#btnBookCopyadded"/> 
-  </children>
+<AnchorPane fx:controller="ls.controller.book.AddBookCopiesController"
+	prefHeight="241.0" prefWidth="384.0000999999975" xmlns:fx="http://javafx.com/fxml/1"
+	xmlns="http://javafx.com/javafx/2.2">
+	<children>
+		<Label layoutX="133.0" layoutY="89.0" text="ISBN" />
+		<Label layoutX="44.0" layoutY="129.0" text="Number Of Copies" />
+		<TextField layoutX="184.0" layoutY="89.0" prefWidth="117.0"
+			fx:id="txtISBNNo" />
+		<TextField layoutX="184.0" layoutY="129.0" prefWidth="117.0"
+			fx:id="txtNumberOfCopies" />
+		<Button layoutX="184.0" layoutY="182.0" mnemonicParsing="false"
+			text="Add" fx:id="btnAdd" onAction="#btnBookCopyadded" />
+	</children>
 </AnchorPane>
