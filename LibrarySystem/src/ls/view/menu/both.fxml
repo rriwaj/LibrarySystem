@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -9,23 +11,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.Node?>
 
-<BorderPane prefHeight="800.0" prefWidth="1000.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
-	fx:controller="ls.controller.menu.BothController" fx:id="rootLayout">
+<BorderPane fx:id="rootLayout" prefHeight="800.0" prefWidth="1000.0" styleClass="border-pane" stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.menu.BothController">
 	<top>
-		<HBox prefHeight="50.0">
-			<Hyperlink text="Add/Edit Member" onAction="#addEditMemberClick"></Hyperlink>
-			<Hyperlink text="Add Book Copy" onAction="#addBookCopyClick"></Hyperlink>
-			<Hyperlink text="Add Book" onAction="#addBookClick"></Hyperlink>
-			<Hyperlink text="Checkout Book" onAction="#checkoutBookClick"></Hyperlink>
-			<Hyperlink text="Search By ISBN" onAction="#searchByISBNClick"></Hyperlink>
+		<HBox alignment="CENTER" prefHeight="50.0">
+   <children>
+   			<Hyperlink onAction="#addEditMemberClick" text="Add/Edit Member">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding></Hyperlink>
+   			<Hyperlink onAction="#addBookCopyClick" text="Add Book Copy">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding></Hyperlink>
+   			<Hyperlink onAction="#addBookClick" text="Add Book">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding></Hyperlink>
+   			<Hyperlink onAction="#checkoutBookClick" text="Checkout Book">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding></Hyperlink>
+   			<Hyperlink onAction="#searchByISBNClick" text="Search By ISBN">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding></Hyperlink>
+   </children>
 
 		</HBox>
 	</top>
 	<center>
-		<AnchorPane prefHeight="300.0" prefWidth="600.0"
-			xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
-			fx:id="bodyLayout">
+		<AnchorPane fx:id="bodyLayout" prefHeight="300.0" prefWidth="600.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
 			<children>
 			</children>
 		</AnchorPane>
