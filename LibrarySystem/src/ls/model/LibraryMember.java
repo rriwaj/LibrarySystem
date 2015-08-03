@@ -11,9 +11,10 @@ public class LibraryMember extends Person implements Serializable {
 	private String memberId;
 	private CheckoutRecord checkoutRecord;
 
-	public LibraryMember(String f, String l, String t, Address a, String mId) {
-		super(f, l, t, a);
-		this.memberId = mId;
+	public LibraryMember(String firstName, String lastName, String telephone,
+			Address address, String memberId) {
+		super(firstName, lastName, telephone, address);
+		this.memberId = memberId;
 		checkoutRecord = new CheckoutRecord();
 	}
 
@@ -31,7 +32,8 @@ public class LibraryMember extends Person implements Serializable {
 
 	@Override
 	public String toString() {
-		return "[" + memberId + ":" + super.getFirstName() + ", " + super.getLastName() + "]";
+		return "[" + memberId + ":" + super.getFirstName() + ", "
+				+ super.getLastName() + "]";
 	}
 
 }

@@ -12,7 +12,7 @@
 <AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
 	minWidth="0.0" prefHeight="554.0" prefWidth="593.0"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="ls.controller.checkout.CheckoutRecordController">
+	fx:controller="ls.controller.checkout.OverDueController">
 	<children>
 		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="567.0"
 			styleClass="pane-frame">

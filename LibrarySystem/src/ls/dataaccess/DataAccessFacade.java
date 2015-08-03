@@ -22,10 +22,16 @@ public class DataAccessFacade implements DataAccess {
 			+ "//src//ls//dataaccess//storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
-	// //specialized lookup methods
-	// public LibraryMember searchMember(String memberId) {
-	// implement
-	// }
+	// specialized lookup methods
+	public LibraryMember searchMember(String memberId) {
+		System.out.println(memberId);
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		if(memberMap==null){
+			System.out.println("null hash map");
+		}
+		LibraryMember b = memberMap.get(memberId);
+		return b;
+	}
 
 	public Book searchBook(String isbn) {
 		HashMap<String, Book> booksMap = readBooksMap();
@@ -49,6 +55,13 @@ public class DataAccessFacade implements DataAccess {
 	// public void saveNewMember(LibraryMember member)
 
 	// public void updateMember(LibraryMember member)
+
+	public void saveNewMember(LibraryMember member) {
+		HashMap<String, LibraryMember> libraryMembersmap = readMemberMap();
+		libraryMembersmap.put(member.getMemberId(), member);
+		saveToStorage(StorageType.MEMBERS, libraryMembersmap);
+	}
+
 	// save new lendable item
 	public void saveNewBook(Book book) {
 		HashMap<String, Book> bookMap = readBooksMap();
@@ -77,7 +90,11 @@ public class DataAccessFacade implements DataAccess {
 
 	// ///load methods - these place test data into the storage area
 	// /// - used just once at startup
-	// static void loadMemberMap(List<LibraryMember> memberList) {
+	static void loadMemberMap(List<LibraryMember> memberList) {
+		HashMap<String, LibraryMember> members = new HashMap<String, LibraryMember>();
+		memberList.forEach(member -> members.put(member.getMemberId(), member));
+		saveToStorage(StorageType.MEMBERS, members);
+	}
 
 	static void loadBookMap(List<Book> bookList) {
 		HashMap<String, Book> books = new HashMap<String, Book>();

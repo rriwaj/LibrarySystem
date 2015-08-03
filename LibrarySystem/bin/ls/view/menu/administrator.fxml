@@ -13,36 +13,37 @@
 <?import javafx.scene.Node?>
 <?import javafx.scene.control.Label?>
 
-<BorderPane fx:id="rootLayout" prefHeight="800" prefWidth="1000" styleClass="border-pane" stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.menu.AdministratorController">
+<BorderPane fx:id="rootLayout" prefHeight="800" prefWidth="1000"
+	styleClass="border-pane" stylesheets="@../resources/application.css"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ls.controller.menu.AdministratorController">
 	<top>
 		<HBox alignment="CENTER" prefHeight="50.0">
-   <children>
-   			<Hyperlink onAction="#addEditMemberClick" text="Add/Edit Member">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </Hyperlink>
-   			<Hyperlink onAction="#addBookCopyClick" text="Add Book Copy">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </Hyperlink>
-   			<Hyperlink onAction="#addBookClick" text="Add Book">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding>
-            </Hyperlink>
-   			<Label fx:id="lblMsg" />
-   </children>
+			<children>
+				<Hyperlink onAction="#addEditMemberClick" text="Add/Edit Member">
+					<padding>
+						<Insets left="20.0" right="20.0" />
+					</padding>
+				</Hyperlink>
+				<Hyperlink onAction="#addBookCopyClick" text="Add Book Copy">
+					<padding>
+						<Insets left="20.0" right="20.0" />
+					</padding>
+				</Hyperlink>
+				<Hyperlink onAction="#addBookClick" text="Add Book">
+					<padding>
+						<Insets left="20.0" right="20.0" />
+					</padding>
+				</Hyperlink>
+				<Label fx:id="lblMsg" />
+			</children>
 		</HBox>
 	</top>
 	<center>
-		<AnchorPane fx:id="bodyLayout" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
+		<AnchorPane fx:id="anchorPane" prefHeight="300.0"
+			prefWidth="600.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
 			<children>
 			</children>
 		</AnchorPane>
 	</center>
-	<bottom>
-		<Label fx:id="hdnText" text="hidden" />
-	</bottom>
 </BorderPane>

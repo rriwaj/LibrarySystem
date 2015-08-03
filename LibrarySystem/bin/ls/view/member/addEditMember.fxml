@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0"
 	prefHeight="554.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.AddEditMemberController">
+	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.SearchMemberController">
 	<children>
 		<Pane layoutX="14.0" layoutY="26.0" prefHeight="489.0" prefWidth="560.0"
 			styleClass="pane-frame">
@@ -25,12 +25,17 @@
 								<Font size="14.0" />
 							</font>
 						</Label>
-						<TextField GridPane.columnIndex="1" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="6" />
+						<TextField GridPane.columnIndex="1" fx:id="txtFirstName" />
+						<TextField GridPane.columnIndex="1" GridPane.rowIndex="1"
+							fx:id="txtLastName" />
+						<TextField GridPane.columnIndex="1" GridPane.rowIndex="2"
+							fx:id="txtStreet" />
+						<TextField GridPane.columnIndex="1" GridPane.rowIndex="3"
+							fx:id="txtCity" />
+						<TextField GridPane.columnIndex="1" GridPane.rowIndex="5"
+							fx:id="txtZip" />
+						<TextField GridPane.columnIndex="1" GridPane.rowIndex="6"
+							fx:id="txtPhoneNo" />
 						<Button fx:id="btnSave" mnemonicParsing="false" prefHeight="25.0"
 							prefWidth="97.0" text="Save" GridPane.columnIndex="2"
 							GridPane.halignment="RIGHT" GridPane.rowIndex="7"

@@ -12,7 +12,7 @@
 <AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
 	minWidth="0.0" prefHeight="554.0" prefWidth="672.0"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="ls.controller.checkout.CheckoutRecordController">
+	fx:controller="ls.controller.checkout.OverDueController">
 	<children>
 		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="644.0"
 			styleClass="pane-frame">
@@ -29,10 +29,9 @@
 						<TextField fx:id="txtBookISBN" GridPane.columnIndex="1"
 							GridPane.rowIndex="0" />
 						<Button fx:id="btnSearch" mnemonicParsing="false"
-							onAction="#searchCheckoutRecordsByBookISBN" prefHeight="25.0"
-							prefWidth="97.0" text="Search" GridPane.columnIndex="2"
-							GridPane.halignment="RIGHT" GridPane.rowIndex="1"
-							GridPane.valignment="CENTER" />
+							onAction="#checkBookCopyOverDue" prefHeight="25.0" prefWidth="97.0"
+							text="Search" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+							GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 					</children>
 					<columnConstraints>
 						<ColumnConstraints hgrow="SOMETIMES" maxWidth="276.0"
@@ -54,18 +53,19 @@
 				<Label fx:id="lblMessage" layoutX="24.0" layoutY="16.0" />
 			</children>
 		</Pane>
-		<Pane fx:id="paneTableView" visible="false" layoutX="14.0"
+		<Pane fx:id="paneTableView" visible="true" layoutX="14.0"
 			layoutY="183.0" prefHeight="238.0" prefWidth="644.0" styleClass="pane-frame">
 			<children>
-				<TableView layoutX="24.0" layoutY="14.0" prefHeight="200.0"
-					prefWidth="605.999977929685">
+				<TableView fx:id="tblOverDueBook" layoutX="24.0" layoutY="14.0"
+					prefHeight="200.0" prefWidth="605.999977929685">
 					<columns>
-						<TableColumn prefWidth="87.0" text="ISBN" />
-						<TableColumn prefWidth="127.0" text="Title" />
-						<TableColumn prefWidth="87.0" text="Copy No." />
-						<TableColumn prefWidth="130.0" text="Member Name" />
-						<TableColumn prefWidth="87.0" text="Due Date" />
-						<TableColumn prefWidth="87.0" text="Status" />
+						<TableColumn prefWidth="87.0" text="ISBN" fx:id="colISBN" />
+						<TableColumn prefWidth="127.0" text="Title" fx:id="colTitle" />
+						<TableColumn prefWidth="87.0" text="Copy No." fx:id="colCopyNo" />
+						<TableColumn prefWidth="130.0" text="Member Name"
+							fx:id="colMemberName" />
+						<TableColumn prefWidth="87.0" text="Due Date" fx:id="colDueDate" />
+						<TableColumn prefWidth="87.0" text="Status" fx:id="colStatus" />
 					</columns>
 				</TableView>
 				<Label layoutX="11.0" layoutY="-10.0" prefHeight="17.0"

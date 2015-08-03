@@ -2,19 +2,19 @@ package ls.dataaccess;
 
 import java.util.HashMap;
 
-import ls.model.*;;
+import ls.model.*;
 
 
 
 
 
 public interface DataAccess {
-	//public LibraryMember searchMember(String memberId);
+	public LibraryMember searchMember(String memberId);
 	public Book searchBook(String isbn);
 	
 	
 	///////save methods
-	//public void saveNewMember(LibraryMember member);
+	public void saveNewMember(LibraryMember member);
 	//public void updateMember(LibraryMember member);
 	
 	//save new book

@@ -13,7 +13,7 @@ import ls.dataaccess.DataAccess;
 import ls.model.Address;
 import ls.model.LibraryMember;
 
-public class AddEditMemberController implements Initializable {
+public class CopyOfAddEditMemberControlleroLD implements Initializable {
 	@FXML
 	private AnchorPane anchorPane;
 	@FXML
@@ -42,8 +42,9 @@ public class AddEditMemberController implements Initializable {
 
 	private DataAccess dataAccess;
 
-	public AddEditMemberController() {
+	public CopyOfAddEditMemberControlleroLD() {
 		dataAccess = Utility.getDataAcessFacadeInstance();
+
 	}
 
 	@FXML
@@ -56,10 +57,12 @@ public class AddEditMemberController implements Initializable {
 			LibraryMember member = new LibraryMember(txtFirstName.getText(),
 					txtLastName.getText(), txtPhoneNo.getText(), memberAddress,
 					memberId);
-			dataAccess.saveNewMember(member);	
+			dataAccess.saveNewMember(member);
+			//Utility.clearAllTextBoxFromAnchorPane(anchorPane);
 			lblMessage.setText("Library Member with id " + memberId + " added");
 		}
 	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
