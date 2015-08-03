@@ -70,6 +70,8 @@ public class OverDueController implements Initializable {
 		if (!validateOverDueFields()) {
 			return;
 		}
+		paneTableView.setVisible(false);
+		lblMessage.setText("");
 		List<OverDueBook> overDueBookList = new ArrayList<OverDueBook>();
 		// search books by ISBN
 		book = dataAccessFacade.searchBook(txtBookISBN.getText());
@@ -133,6 +135,10 @@ public class OverDueController implements Initializable {
 				}
 			}
 			printCheckoutRecordEntries(overDueBookList);
+			paneTableView.setVisible(true);
+		} else {
+			lblMessage.setText("Book does not exist with ISBN "
+					+ txtBookISBN.getText());
 		}
 	}
 
