@@ -109,7 +109,8 @@ public class Utility {
 					.getResource("../view/book/addBook.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 			anchorPane.getChildren().add(checkoutBook);
-			anchorPane.setPrefSize(450.0, 400.0);
+			anchorPane.setLayoutX(0);
+			anchorPane.setLayoutY(0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

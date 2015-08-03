@@ -50,9 +50,8 @@ public class AddBookCopiesController implements Initializable {
 								"Book Unavailable", JOptionPane.YES_NO_OPTION);
 				if (answer == JOptionPane.YES_OPTION) {
 					Utility.loadAddBookView(anchorPane);
-				} else {
-					return;
 				}
+				return;
 			}
 
 			int numOfCopies = Integer.parseInt(txtNumberOfCopies.getText());

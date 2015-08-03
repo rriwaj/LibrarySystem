@@ -52,6 +52,8 @@ public class LoginController {
 					// Show the scene containing the root layout.
 					Scene scene = new Scene(root, 1000.0, 575.0);
 					st.setScene(scene);
+					st.setX(150);
+					st.setY(50);
 					st.show();
 				} else {
 					lblMessage
