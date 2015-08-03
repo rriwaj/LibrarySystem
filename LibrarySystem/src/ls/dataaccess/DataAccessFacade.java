@@ -33,6 +33,12 @@ public class DataAccessFacade implements DataAccess {
 		return b;
 	}
 
+	public LibraryMember searchMember(String id) {
+		HashMap<String, LibraryMember> membersMap = readMemberMap();
+		LibraryMember m = membersMap.get(id);
+		return m;
+	}
+
 	public Auth login(String id, String pwd) {
 		HashMap<String, User> userMap = readUserMap();
 		if (!userMap.containsKey(id))
@@ -46,7 +52,12 @@ public class DataAccessFacade implements DataAccess {
 
 	// /////save methods
 	// saveNewMember
-	// public void saveNewMember(LibraryMember member)
+	public void saveNewMember(LibraryMember member) {
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		String memberId = member.getMemberId();
+		memberMap.put(memberId, member);
+		saveToStorage(StorageType.MEMBERS, memberMap);
+	}
 
 	// public void updateMember(LibraryMember member)
 	// save new lendable item
@@ -77,7 +88,11 @@ public class DataAccessFacade implements DataAccess {
 
 	// ///load methods - these place test data into the storage area
 	// /// - used just once at startup
-	// static void loadMemberMap(List<LibraryMember> memberList) {
+	static void loadMemberMap(List<LibraryMember> memberList) {
+		HashMap<String, LibraryMember> members = new HashMap<String, LibraryMember>();
+		memberList.forEach(member -> members.put(member.getMemberId(), member));
+		saveToStorage(StorageType.MEMBERS, members);
+	}
 
 	static void loadBookMap(List<Book> bookList) {
 		HashMap<String, Book> books = new HashMap<String, Book>();

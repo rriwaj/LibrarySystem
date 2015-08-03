@@ -12,7 +12,7 @@
 <AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
 	minWidth="0.0" prefHeight="554.0" prefWidth="593.0"
 	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="ls.controller.checkout.CheckoutRecordController">
+	fx:controller="ls.controller.checkout.OverDueController">
 	<children>
 		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="567.0"
 			styleClass="pane-frame">
@@ -29,10 +29,9 @@
 						<TextField fx:id="txtMemberId" GridPane.columnIndex="1"
 							GridPane.rowIndex="0" />
 						<Button fx:id="btnSearch" mnemonicParsing="false"
-							onAction="#searchCheckoutRecordsByMemberId" prefHeight="25.0"
-							prefWidth="79.0" text="Search" GridPane.columnIndex="2"
-							GridPane.halignment="RIGHT" GridPane.rowIndex="1"
-							GridPane.valignment="CENTER" />
+							onAction="#checkMemberRecord" prefHeight="31.0" prefWidth="120.0"
+							text="Show Record" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+							GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 					</children>
 					<columnConstraints>
 						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
@@ -49,27 +48,29 @@
 							vgrow="SOMETIMES" />
 					</rowConstraints>
 				</GridPane>
-				<Label layoutX="10.0" layoutY="-10.0" prefHeight="17.0"
-					prefWidth="82.0" style="-fx-background-color: white;" text=" Search Criteria" />
-				<Label fx:id="lblMessage" layoutX="24.0" layoutY="16.0" />
+				<Label layoutX="10.0" layoutY="-10.0" prefHeight="21.0"
+					prefWidth="110.0" style="-fx-background-color: white;" text=" Search Criteria" />
+				<Label fx:id="lblMessage" styleClass="error" layoutX="24.0"
+					layoutY="16.0" />
 			</children>
 		</Pane>
-		<Pane visible="false" fx:id="paneTableView" layoutX="14.0"
-			layoutY="183.0" prefHeight="286.0" prefWidth="567.0" styleClass="pane-frame">
+		<Pane fx:id="paneTableView" layoutX="14.0" layoutY="183.0"
+			prefHeight="286.0" prefWidth="567.0" styleClass="pane-frame" visible="false">
 			<children>
-				<TableView layoutX="22.0" layoutY="19.0" prefHeight="200.0"
-					prefWidth="524.0">
+				<TableView fx:id="tblMemberRecords" layoutX="22.0"
+					layoutY="19.0" prefHeight="200.0" prefWidth="524.0">
 					<columns>
-						<TableColumn prefWidth="150.0" text="Copy Number" />
-						<TableColumn prefWidth="150.0" text="Due Date" />
-						<TableColumn prefWidth="150.0" text="Checkout Date" />
+						<TableColumn fx:id="colISBN" prefWidth="106.0" text="Book ISBN" />
+						<TableColumn fx:id="colTitle" prefWidth="115.0" text="Book Title" />
+						<TableColumn fx:id="colCopyNo" prefWidth="76.0" text="Copy No" />
+						<TableColumn fx:id="colDueDate" prefWidth="120.0"
+							text="Checkout Date" />
+						<TableColumn fx:id="colStatus" maxWidth="105.0"
+							prefWidth="105.0" text="Due Date" />
 					</columns>
 				</TableView>
-				<Label layoutX="11.0" layoutY="-10.0" prefHeight="17.0"
-					prefWidth="65.0" style="-fx-background-color: white;" text=" Table View" />
-				<Button fx:id="btnPrint" layoutX="467.0" layoutY="235.0"
-					mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Print"
-					onAction="#printCheckoutRecordEntries" />
+				<Label layoutX="11.0" layoutY="-10.0" prefHeight="21.0"
+					prefWidth="82.0" style="-fx-background-color: white;" text=" Table View" />
 			</children>
 		</Pane>
 	</children>

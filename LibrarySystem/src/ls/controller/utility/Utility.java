@@ -136,4 +136,17 @@ public class Utility {
 		}
 	}
 
+	public static void loadPrintMemberRecordView(AnchorPane anchorPane) {
+		try {
+			anchorPane.getChildren().clear();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("../view/checkout/"
+					+ "searchMemberCheckoutRecordEntries.fxml"));
+			AnchorPane checkoutBook = (AnchorPane) loader.load();
+			anchorPane.getChildren().add(checkoutBook);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 }

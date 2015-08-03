@@ -17,7 +17,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import ls.common.CommonConfigurations;
+import ls.common.ConfigurationConstants;
 import ls.controller.Main;
 import ls.controller.utility.Utility;
 import ls.dataaccess.DataAccessFacade;
@@ -120,7 +120,7 @@ public class AddBookController implements Initializable {
 			dataAccessFacade.saveNewBook(newBook);
 
 			lblMessage
-					.setText(CommonConfigurations.LabelMessages.OPERATION_DONE_SUCCESSFULLY);
+					.setText(ConfigurationConstants.LabelMessages.OPERATION_DONE_SUCCESSFULLY);
 		}
 	}
 

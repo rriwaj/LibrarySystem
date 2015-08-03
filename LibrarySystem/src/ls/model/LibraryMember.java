@@ -1,6 +1,9 @@
 package ls.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LibraryMember extends Person implements Serializable {
 
@@ -17,6 +20,18 @@ public class LibraryMember extends Person implements Serializable {
 		checkoutRecord = new CheckoutRecord();
 	}
 
+	public void checkout(BookCopy bookCopy, LocalDate today, LocalDate dueDate) {
+		bookCopy.changeAvailability();
+		CheckoutRecordEntry checkoutRecordEntry = new CheckoutRecordEntry(
+				today, dueDate, bookCopy);
+		List<CheckoutRecordEntry> checkoutRecordEntries = new ArrayList<CheckoutRecordEntry>() {
+			{
+				add(checkoutRecordEntry);
+			}
+		};
+		checkoutRecord.setCheckoutRecordEntries(checkoutRecordEntries);
+	}
+
 	public String getMemberId() {
 		return memberId;
 	}
@@ -31,7 +46,8 @@ public class LibraryMember extends Person implements Serializable {
 
 	@Override
 	public String toString() {
-		return "[" + memberId + ":" + super.getFirstName() + ", " + super.getLastName() + "]";
+		return "[" + memberId + ":" + super.getFirstName() + ", "
+				+ super.getLastName() + "]";
 	}
 
 }

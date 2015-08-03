@@ -5,18 +5,19 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="300.0" prefWidth="600.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
-	fx:controller="ls.controller.checkout.CheckoutBookController" fx:id="rootLayout">
+<AnchorPane fx:id="rootLayout" prefHeight="300.0" prefWidth="600.0"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ls.controller.checkout.CheckoutBookController">
 	<!-- AnchorPaneTODO Add Nodes -->
 	<children>
-		<Label fx:id="lblMessage" layoutX="132.0" layoutY="14.0" text="" />
+		<Label fx:id="lblMessage" layoutX="132.0" layoutY="14.0"
+			styleClass="error" text="" />
 		<TextField fx:id="txtISBNNo" layoutX="244.0" layoutY="101.0"
 			prefWidth="200.0" />
 		<TextField fx:id="txtMemberId" layoutX="244.0" layoutY="42.0"
 			prefWidth="200.0" />
-		<Label layoutX="132.0" layoutY="48.0" text="Member Id" />
-		<Label layoutX="132.0" layoutY="104.0" text="ISBN No" />
+		<Label layoutX="132.0" layoutY="48.0" text="Member ID" />
+		<Label layoutX="132.0" layoutY="104.0" text="Book ISBN" />
 		<Button id="button" fx:id="btnCheckout" layoutX="300.0"
 			layoutY="187.0" mnemonicParsing="false" onAction="#btnCheckoutClick"
 			text="Checkout" />
