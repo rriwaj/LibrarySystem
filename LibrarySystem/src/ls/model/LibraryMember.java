@@ -30,7 +30,7 @@ public class LibraryMember extends Person implements Serializable {
 				add(checkoutRecordEntry);
 			}
 		};
-		checkoutRecord.setCheckoutRecordEntries(checkoutRecordEntries);
+		checkoutRecord.getCheckoutRecordEntries().addAll(checkoutRecordEntries);
 	}
 
 	public String getMemberId() {
