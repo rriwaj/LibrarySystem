@@ -55,6 +55,9 @@ public class OverDueController implements Initializable {
 	@FXML
 	TableColumn<OverDueBook, String> colStatus;
 
+	@FXML
+	TableView<OverDueBook> tblMemberRecords;
+
 	DataAccessFacade dataAccessFacade;
 	private Book book;
 
@@ -98,7 +101,10 @@ public class OverDueController implements Initializable {
 						// get bookcopy from each checkout record entry
 						BookCopy memberBookCopy = memberCheckoutRecordEntry
 								.getBookCopy();
-						if (memberBookCopy.getBook().getIsbn() //filter list of book member has with isbn entered
+						if (memberBookCopy.getBook().getIsbn() // filter list of
+																// book member
+																// has with isbn
+																// entered
 								.equals(txtBookISBN.getText())) {
 							// check if overdue or not
 							if (isBookCopyOverDue(memberCheckoutRecordEntry
@@ -108,7 +114,9 @@ public class OverDueController implements Initializable {
 										memberBookCopy.getBook().getIsbn(),
 										memberBookCopy.getBook().getTitle(),
 										memberBookCopy.getCopyNum(), member
-												.getMemberId(),
+												.getFirstName()
+												+ " "
+												+ member.getLastName(),
 										memberCheckoutRecordEntry.getDueDate()
 												.toString(), "Overdue"));
 								// unAvailableBookCopies.remove(memberBookCopy);
@@ -117,7 +125,9 @@ public class OverDueController implements Initializable {
 										memberBookCopy.getBook().getIsbn(),
 										memberBookCopy.getBook().getTitle(),
 										memberBookCopy.getCopyNum(), member
-												.getMemberId(),
+												.getFirstName()
+												+ " "
+												+ member.getLastName(),
 										memberCheckoutRecordEntry.getDueDate()
 												.toString(), "Unavailable"));
 							}
@@ -131,13 +141,74 @@ public class OverDueController implements Initializable {
 		}
 	}
 
+	@FXML
+	public void checkMemberRecord() {
+		paneTableView.setVisible(false);
+		lblMessage.setText("");
+
+		String memberId = txtMemberId.getText();
+
+		if (!validateFields()) {
+			return;
+		}
+
+		List<OverDueBook> memberRecordsList = new ArrayList<OverDueBook>();
+		// get all library members as each library member has its own
+		// checkout record
+		HashMap<String, LibraryMember> members = dataAccessFacade
+				.readMemberMap();
+
+		// for each library members get their checkout records
+
+		LibraryMember existedLibraryMember = dataAccessFacade
+				.searchMember(memberId);
+
+		if (existedLibraryMember == null) {
+			lblMessage.setText("Member does not exist with ID " + memberId);
+			return;
+		}
+
+		for (LibraryMember member : members.values()) {
+			if (member.getMemberId().equals(memberId)) {
+				// get all checkout record entries from checkout records
+				List<CheckoutRecordEntry> checkoutRecordEntries = member
+						.getCheckoutRecord().getCheckoutRecordEntries();
+				// get checkout record entry from checkout record
+				for (CheckoutRecordEntry memberCheckoutRecordEntry : checkoutRecordEntries) {
+					// get bookcopy from each checkout record entry
+					BookCopy memberBookCopy = memberCheckoutRecordEntry
+							.getBookCopy();
+					memberRecordsList.add(new OverDueBook(memberBookCopy
+							.getBook().getIsbn(), memberBookCopy.getBook()
+							.getTitle(), memberBookCopy.getCopyNum(), "",
+							memberCheckoutRecordEntry.getCheckoutDate()
+									.toString(), memberCheckoutRecordEntry
+									.getDueDate().toString()));
+				}
+			}
+
+		}
+
+		if (memberRecordsList.isEmpty()) {
+			lblMessage.setText("No data found for member with ID " + memberId);
+			return;
+		}
+
+		showCheckoutRecordEntries(memberRecordsList);
+		paneTableView.setVisible(true);
+	}
+
+	private boolean validateFields() {
+		if (txtMemberId.getText().equals("")) {
+			lblMessage.setText("Member ID: Value is required.");
+			return false;
+		}
+		return true;
+	}
+
 	private boolean isBookCopyOverDue(LocalDate dueDate) {
 
 		return dueDate.isBefore(LocalDate.now());
-	}
-
-	public void searchCheckoutRecordsByMemberId() {
-		paneTableView.setVisible(true);
 	}
 
 	private void printCheckoutRecordEntries(List<OverDueBook> list) {
@@ -152,6 +223,18 @@ public class OverDueController implements Initializable {
 		colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
 		colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 		tblOverDueBook.setItems(data);
+	}
+
+	private void showCheckoutRecordEntries(List<OverDueBook> list) {
+		ObservableList<OverDueBook> data = FXCollections
+				.observableArrayList(list);
+		colISBN.setCellValueFactory(new PropertyValueFactory<OverDueBook, String>(
+				"ISBN"));
+		colTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+		colCopyNo.setCellValueFactory(new PropertyValueFactory<>("copyNo"));
+		colDueDate.setCellValueFactory(new PropertyValueFactory<>("dueDate"));
+		colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+		tblMemberRecords.setItems(data);
 	}
 
 	//

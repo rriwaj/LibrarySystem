@@ -11,23 +11,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.Node?>
 
-<BorderPane fx:id="rootLayout" prefHeight="800.0" prefWidth="1000.0" styleClass="border-pane" stylesheets="@../resources/application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.menu.MemberController">
+<BorderPane fx:id="rootLayout" prefHeight="800.0" prefWidth="1000.0"
+	styleClass="border-pane" stylesheets="@../resources/application.css"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ls.controller.menu.MemberController">
 	<top>
 		<HBox alignment="CENTER" prefHeight="50.0">
-   <children>
-   			<Hyperlink onAction="#checkoutBookClick" text="Checkout Book">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding></Hyperlink>
-   			<Hyperlink onAction="#searchByISBNClick" text="Search By ISBN">
-               <padding>
-                  <Insets left="20.0" right="20.0" />
-               </padding></Hyperlink>
-   </children>
+			<children>
+				<Hyperlink onAction="#checkoutBookClick" text="Checkout Book">
+					<padding>
+						<Insets left="20.0" right="20.0" />
+					</padding>
+				</Hyperlink>
+				<Hyperlink onAction="#searchByISBNClick" text="Search By ISBN">
+					<padding>
+						<Insets left="20.0" right="20.0" />
+					</padding>
+				</Hyperlink>
+				<Hyperlink onAction="#showMemberRecordClick" text="Show Member Record">
+					<padding>
+						<Insets left="20.0" right="20.0" />
+					</padding>
+				</Hyperlink>
+			</children>
 		</HBox>
 	</top>
 	<center>
-		<AnchorPane fx:id="bodyLayout" prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
+		<AnchorPane fx:id="bodyLayout" prefHeight="300.0"
+			prefWidth="600.0" xmlns="http://javafx.com/javafx/2.2" xmlns:fx="http://javafx.com/fxml/1">
 			<children>
 			</children>
 		</AnchorPane>

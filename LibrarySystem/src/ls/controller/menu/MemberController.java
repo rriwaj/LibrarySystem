@@ -1,6 +1,5 @@
 package ls.controller.menu;
 
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -24,13 +23,17 @@ public class MemberController implements Initializable {
 	private void checkoutBookClick() {
 		Utility.loadCheckoutBookView(bodyLayout);
 	}
+
+	@FXML
+	private void showMemberRecordClick() {
+		Utility.loadPrintMemberRecordView(bodyLayout);
+	}
+
 	// initialize view before load
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// load CheckoutBook Form initially
 		Utility.loadCheckoutBookView(bodyLayout);
 	}
-
-	
 
 }

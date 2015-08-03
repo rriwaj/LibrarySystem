@@ -22,21 +22,16 @@ public class DataAccessFacade implements DataAccess {
 			+ "//src//ls//dataaccess//storage";
 	public static final String DATE_PATTERN = "MM/dd/yyyy";
 
-	// specialized lookup methods
-	public LibraryMember searchMember(String memberId) {
-		System.out.println(memberId);
-		HashMap<String, LibraryMember> memberMap = readMemberMap();
-		if(memberMap==null){
-			System.out.println("null hash map");
-		}
-		LibraryMember b = memberMap.get(memberId);
-		return b;
-	}
-
 	public Book searchBook(String isbn) {
 		HashMap<String, Book> booksMap = readBooksMap();
 		Book b = booksMap.get(isbn);
 		return b;
+	}
+
+	public LibraryMember searchMember(String id) {
+		HashMap<String, LibraryMember> membersMap = readMemberMap();
+		LibraryMember m = membersMap.get(id);
+		return m;
 	}
 
 	public Auth login(String id, String pwd) {
@@ -52,16 +47,12 @@ public class DataAccessFacade implements DataAccess {
 
 	// /////save methods
 	// saveNewMember
-	// public void saveNewMember(LibraryMember member)
-
-	// public void updateMember(LibraryMember member)
-
 	public void saveNewMember(LibraryMember member) {
-		HashMap<String, LibraryMember> libraryMembersmap = readMemberMap();
-		libraryMembersmap.put(member.getMemberId(), member);
-		saveToStorage(StorageType.MEMBERS, libraryMembersmap);
+		HashMap<String, LibraryMember> memberMap = readMemberMap();
+		String memberId = member.getMemberId();
+		memberMap.put(memberId, member);
+		saveToStorage(StorageType.MEMBERS, memberMap);
 	}
-
 	// save new lendable item
 	public void saveNewBook(Book book) {
 		HashMap<String, Book> bookMap = readBooksMap();

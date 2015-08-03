@@ -14,4 +14,9 @@ public class BothController extends AdministratorController {
 	private void checkoutBookClick() {
 		Utility.loadCheckoutBookView(anchorPane);
 	}
+
+	@FXML
+	private void showMemberRecordClick() {
+		Utility.loadPrintMemberRecordView(anchorPane);
+	}
 }
