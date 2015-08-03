@@ -21,7 +21,7 @@ public class AdministratorController implements Initializable {
 
 	@FXML
 	protected void addEditMemberClick() {
-		Utility.loadAddEditMemberView(anchorPane);
+		Utility.loadSearchMembersView(anchorPane);
 	}
 
 	@FXML
@@ -37,7 +37,6 @@ public class AdministratorController implements Initializable {
 	// initialize view before load
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// load CheckoutBook Form initially
 		Utility.loadSearchMembersView(anchorPane);
 	}
 }
