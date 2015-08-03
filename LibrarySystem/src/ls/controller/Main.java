@@ -22,7 +22,7 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) {
-		this.primaryStage = primaryStage;		
+		this.primaryStage = primaryStage;
 		primaryStage.setTitle("Library System");
 		initRootLayout();
 	}
@@ -38,7 +38,7 @@ public class Main extends Application {
 			loader.setLocation(Main.class.getResource("../view/Login.fxml"));
 			rootLayout = (AnchorPane) loader.load();
 			// Show the scene containing the root layout.
-			Scene scene = new Scene(rootLayout);
+			Scene scene = new Scene(rootLayout, 460.0, 200.0);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException e) {

@@ -50,7 +50,7 @@ public class LoginController {
 					BorderPane root;
 					root = (BorderPane) loader.load();
 					// Show the scene containing the root layout.
-					Scene scene = new Scene(root);
+					Scene scene = new Scene(root, 1000.0, 575.0);
 					st.setScene(scene);
 					st.show();
 				}

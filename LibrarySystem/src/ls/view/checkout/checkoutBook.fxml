@@ -5,21 +5,33 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="rootLayout" prefHeight="300.0" prefWidth="600.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="ls.controller.checkout.CheckoutBookController">
+<AnchorPane fx:id="rootLayout" layoutX="275.0" layoutY="20.0" prefHeight="277.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.checkout.CheckoutBookController">
 	<!-- AnchorPaneTODO Add Nodes -->
 	<children>
-		<Label fx:id="lblMessage" layoutX="132.0" layoutY="14.0"
-			styleClass="error" text="" />
-		<TextField fx:id="txtISBNNo" layoutX="244.0" layoutY="101.0"
-			prefWidth="200.0" />
-		<TextField fx:id="txtMemberId" layoutX="244.0" layoutY="42.0"
-			prefWidth="200.0" />
-		<Label layoutX="132.0" layoutY="48.0" text="Member ID" />
-		<Label layoutX="132.0" layoutY="104.0" text="Book ISBN" />
-		<Button id="button" fx:id="btnCheckout" layoutX="300.0"
-			layoutY="187.0" mnemonicParsing="false" onAction="#btnCheckoutClick"
-			text="Checkout" />
+		<Label fx:id="lblMessage" layoutX="132.0" layoutY="14.0" styleClass="error" text="" />
+      <Pane layoutX="36.0" layoutY="25.0" prefHeight="230.0" prefWidth="385.0" styleClass="pane-frame">
+         <children>
+            <GridPane layoutX="23.0" layoutY="34.0" prefHeight="164.0" prefWidth="342.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="55.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="48.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+            		<Label text="Member ID" />
+            		<Label text="Book ISBN" GridPane.rowIndex="1" />
+            		<TextField fx:id="txtMemberId" prefWidth="200.0" GridPane.columnIndex="1" />
+            		<TextField fx:id="txtISBNNo" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            		<Button id="button" fx:id="btnCheckout" mnemonicParsing="false" onAction="#btnCheckoutClick" text="Checkout" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+            <Label layoutX="29.0" layoutY="-10.0" prefHeight="21.0" prefWidth="109.0" style="-fx-background-color: white;" text=" Checkout Book" />
+         </children>
+      </Pane>
 	</children>
 </AnchorPane>

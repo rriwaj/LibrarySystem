@@ -9,68 +9,46 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="anchorPaneContent" minHeight="0.0"
-	minWidth="0.0" prefHeight="554.0" prefWidth="593.0"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="ls.controller.checkout.OverDueController">
+<AnchorPane fx:id="anchorPaneContent" layoutX="200.0" layoutY="20.0" minHeight="0.0" minWidth="0.0" prefHeight="554.0" prefWidth="593.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.checkout.OverDueController">
 	<children>
-		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="567.0"
-			styleClass="pane-frame">
+		<Pane layoutX="14.0" layoutY="26.0" prefHeight="133.0" prefWidth="567.0" styleClass="pane-frame">
 			<children>
-				<GridPane depthTest="INHERIT" layoutX="24.0" layoutY="24.0"
-					prefHeight="105.0" prefWidth="524.0">
+				<GridPane depthTest="INHERIT" layoutX="24.0" layoutY="24.0" prefHeight="105.0" prefWidth="524.0">
 					<children>
-						<Label text="Member ID" GridPane.columnIndex="0"
-							GridPane.rowIndex="0">
+						<Label text="Member ID" GridPane.columnIndex="0" GridPane.rowIndex="0">
 							<font>
 								<Font size="14.0" />
 							</font>
 						</Label>
-						<TextField fx:id="txtMemberId" GridPane.columnIndex="1"
-							GridPane.rowIndex="0" />
-						<Button fx:id="btnSearch" mnemonicParsing="false"
-							onAction="#checkMemberRecord" prefHeight="31.0" prefWidth="120.0"
-							text="Show Record" GridPane.columnIndex="2" GridPane.halignment="RIGHT"
-							GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+						<TextField fx:id="txtMemberId" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+						<Button fx:id="btnSearch" mnemonicParsing="false" onAction="#checkMemberRecord" prefHeight="31.0" prefWidth="120.0" text="Show Record" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
 					</children>
 					<columnConstraints>
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 					</columnConstraints>
 					<rowConstraints>
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
-						<RowConstraints minHeight="10.0" prefHeight="30.0"
-							vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 					</rowConstraints>
 				</GridPane>
-				<Label layoutX="10.0" layoutY="-10.0" prefHeight="21.0"
-					prefWidth="110.0" style="-fx-background-color: white;" text=" Search Criteria" />
-				<Label fx:id="lblMessage" styleClass="error" layoutX="24.0"
-					layoutY="16.0" />
+				<Label layoutX="10.0" layoutY="-10.0" prefHeight="21.0" prefWidth="105.0" style="-fx-background-color: white;" text=" Search Criteria" />
+				<Label fx:id="lblMessage" layoutX="24.0" layoutY="16.0" styleClass="error" />
 			</children>
 		</Pane>
-		<Pane fx:id="paneTableView" layoutX="14.0" layoutY="183.0"
-			prefHeight="286.0" prefWidth="567.0" styleClass="pane-frame" visible="false">
+		<Pane fx:id="paneTableView" layoutX="14.0" layoutY="183.0" prefHeight="286.0" prefWidth="567.0" styleClass="pane-frame" visible="false">
 			<children>
-				<TableView fx:id="tblMemberRecords" layoutX="22.0"
-					layoutY="19.0" prefHeight="200.0" prefWidth="524.0">
+				<TableView fx:id="tblMemberRecords" layoutX="22.0" layoutY="19.0" prefHeight="200.0" prefWidth="524.0">
 					<columns>
 						<TableColumn fx:id="colISBN" prefWidth="106.0" text="Book ISBN" />
 						<TableColumn fx:id="colTitle" prefWidth="115.0" text="Book Title" />
 						<TableColumn fx:id="colCopyNo" prefWidth="76.0" text="Copy No" />
-						<TableColumn fx:id="colDueDate" prefWidth="120.0"
-							text="Checkout Date" />
-						<TableColumn fx:id="colStatus" maxWidth="105.0"
-							prefWidth="105.0" text="Due Date" />
+						<TableColumn fx:id="colDueDate" prefWidth="120.0" text="Checkout Date" />
+						<TableColumn fx:id="colStatus" maxWidth="105.0" prefWidth="105.0" text="Due Date" />
 					</columns>
 				</TableView>
-				<Label layoutX="11.0" layoutY="-10.0" prefHeight="21.0"
-					prefWidth="82.0" style="-fx-background-color: white;" text=" Table View" />
+				<Label layoutX="11.0" layoutY="-10.0" prefHeight="21.0" prefWidth="82.0" style="-fx-background-color: white;" text=" Table View" />
 			</children>
 		</Pane>
 	</children>

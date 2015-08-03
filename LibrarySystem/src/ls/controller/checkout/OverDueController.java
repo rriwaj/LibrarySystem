@@ -67,78 +67,81 @@ public class OverDueController implements Initializable {
 
 	@FXML
 	public void checkBookCopyOverDue() {
+		if (validateOverDueFields()) {
+			return;
+		}
 		List<OverDueBook> overDueBookList = new ArrayList<OverDueBook>();
-		if (txtBookISBN.getText().length() > 0) {
-			// search books by ISBN
-			book = dataAccessFacade.searchBook(txtBookISBN.getText());
-			// if book exists
-			if (book != null) {
-				// get all book copies
-				BookCopy[] bookCopies = book.getCopies();
-				List<BookCopy> availableBookCopies = new ArrayList<BookCopy>();
-				List<BookCopy> unAvailableBookCopies = new ArrayList<BookCopy>();
-				// List<BookCopy> overdueBookCopies = new ArrayList<BookCopy>();
-				for (int i = 0; i < bookCopies.length; i++) {
-					if (bookCopies[i].isAvailable()) {
-						availableBookCopies.add(bookCopies[i]);
-					} else {
-						unAvailableBookCopies.add(bookCopies[i]);
-					}
+		// search books by ISBN
+		book = dataAccessFacade.searchBook(txtBookISBN.getText());
+		// if book exists
+		if (book != null) {
+			// get all book copies
+			BookCopy[] bookCopies = book.getCopies();
+			List<BookCopy> availableBookCopies = new ArrayList<BookCopy>();
+			List<BookCopy> unAvailableBookCopies = new ArrayList<BookCopy>();
+			// List<BookCopy> overdueBookCopies = new ArrayList<BookCopy>();
+			for (int i = 0; i < bookCopies.length; i++) {
+				if (bookCopies[i].isAvailable()) {
+					availableBookCopies.add(bookCopies[i]);
+				} else {
+					unAvailableBookCopies.add(bookCopies[i]);
 				}
+			}
 
-				// get all library members as each library member has its own
-				// checkout record
-				HashMap<String, LibraryMember> members = dataAccessFacade
-						.readMemberMap();
+			// get all library members as each library member has its own
+			// checkout record
+			HashMap<String, LibraryMember> members = dataAccessFacade
+					.readMemberMap();
 
-				// for each library members get their checkout records
-				for (LibraryMember member : members.values()) {
-					// get all checkout record entries from checkout records
-					List<CheckoutRecordEntry> checkoutRecordEntries = member
-							.getCheckoutRecord().getCheckoutRecordEntries();
-					// get checkout record entry from checkout record
-					for (CheckoutRecordEntry memberCheckoutRecordEntry : checkoutRecordEntries) {
-						// get bookcopy from each checkout record entry
-						BookCopy memberBookCopy = memberCheckoutRecordEntry
-								.getBookCopy();
-						if (memberBookCopy.getBook().getIsbn() // filter list of
-																// book member
-																// has with isbn
-																// entered
-								.equals(txtBookISBN.getText())) {
-							// check if overdue or not
-							if (isBookCopyOverDue(memberCheckoutRecordEntry
-									.getDueDate())) {
-								// overdueBookCopies.add(memberBookCopy);
-								overDueBookList.add(new OverDueBook(
-										memberBookCopy.getBook().getIsbn(),
-										memberBookCopy.getBook().getTitle(),
-										memberBookCopy.getCopyNum(), member
-												.getFirstName()
-												+ " "
-												+ member.getLastName(),
-										memberCheckoutRecordEntry.getDueDate()
-												.toString(), "Overdue"));
-								// unAvailableBookCopies.remove(memberBookCopy);
-							} else {
-								overDueBookList.add(new OverDueBook(
-										memberBookCopy.getBook().getIsbn(),
-										memberBookCopy.getBook().getTitle(),
-										memberBookCopy.getCopyNum(), member
-												.getFirstName()
-												+ " "
-												+ member.getLastName(),
-										memberCheckoutRecordEntry.getDueDate()
-												.toString(), "Unavailable"));
-							}
+			// for each library members get their checkout records
+			for (LibraryMember member : members.values()) {
+				// get all checkout record entries from checkout records
+				List<CheckoutRecordEntry> checkoutRecordEntries = member
+						.getCheckoutRecord().getCheckoutRecordEntries();
+				// get checkout record entry from checkout record
+				for (CheckoutRecordEntry memberCheckoutRecordEntry : checkoutRecordEntries) {
+					// get bookcopy from each checkout record entry
+					BookCopy memberBookCopy = memberCheckoutRecordEntry
+							.getBookCopy();
+					if (memberBookCopy.getBook().getIsbn() // filter list of
+															// book member
+															// has with isbn
+															// entered
+							.equals(txtBookISBN.getText())) {
+						// check if overdue or not
+						if (isBookCopyOverDue(memberCheckoutRecordEntry
+								.getDueDate())) {
+							// overdueBookCopies.add(memberBookCopy);
+							overDueBookList.add(new OverDueBook(memberBookCopy
+									.getBook().getIsbn(), memberBookCopy
+									.getBook().getTitle(), memberBookCopy
+									.getCopyNum(), member.getFirstName() + " "
+									+ member.getLastName(),
+									memberCheckoutRecordEntry.getDueDate()
+											.toString(), "Overdue"));
+							// unAvailableBookCopies.remove(memberBookCopy);
+						} else {
+							overDueBookList.add(new OverDueBook(memberBookCopy
+									.getBook().getIsbn(), memberBookCopy
+									.getBook().getTitle(), memberBookCopy
+									.getCopyNum(), member.getFirstName() + " "
+									+ member.getLastName(),
+									memberCheckoutRecordEntry.getDueDate()
+											.toString(), "Unavailable"));
 						}
 					}
 				}
-				printCheckoutRecordEntries(overDueBookList);
 			}
-		} else {
-			lblMessage.setText("Please enter ISBN no");
+			printCheckoutRecordEntries(overDueBookList);
 		}
+	}
+
+	private boolean validateOverDueFields() {
+		if (txtBookISBN.getText().equals("")) {
+			lblMessage.setText("Book ISBN: Value is required.");
+			return false;
+		}
+		return true;
 	}
 
 	@FXML

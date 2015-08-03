@@ -10,41 +10,38 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.ComboBox?>
 
-<AnchorPane fx:id="anchorPane" minHeight="0.0" minWidth="0.0"
-	prefHeight="554.0" prefWidth="587.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1" fx:controller="ls.controller.member.SearchMemberController">
+<AnchorPane fx:id="anchorPaneAddEdit" layoutX="225.0"
+	layoutY="-5.0" minHeight="0.0" minWidth="0.0" prefHeight="523.0"
+	prefWidth="557.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ls.controller.member.SearchMemberController">
 	<children>
-		<Pane layoutX="14.0" layoutY="26.0" prefHeight="489.0" prefWidth="560.0"
+		<Pane layoutX="12.0" layoutY="33.0" prefHeight="471.0" prefWidth="533.0"
 			styleClass="pane-frame">
 			<children>
-				<GridPane depthTest="INHERIT" layoutX="18.0" layoutY="44.0"
-					prefHeight="451.0" prefWidth="524.0">
+				<GridPane depthTest="INHERIT" layoutX="48.0" layoutY="43.0"
+					prefHeight="406.0" prefWidth="437.0">
 					<children>
 						<Label>
 							<font>
 								<Font size="14.0" />
 							</font>
 						</Label>
-						<TextField GridPane.columnIndex="1" fx:id="txtFirstName" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="1"
-							fx:id="txtLastName" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="2"
-							fx:id="txtStreet" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="3"
-							fx:id="txtCity" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="5"
-							fx:id="txtZip" />
-						<TextField GridPane.columnIndex="1" GridPane.rowIndex="6"
-							fx:id="txtPhoneNo" />
-						<Button fx:id="btnSave" mnemonicParsing="false" prefHeight="25.0"
-							prefWidth="97.0" text="Save" GridPane.columnIndex="2"
-							GridPane.halignment="RIGHT" GridPane.rowIndex="7"
-							GridPane.valignment="CENTER" />
+						<TextField fx:id="txtFirstName" GridPane.columnIndex="1" />
+						<TextField fx:id="txtLastName" GridPane.columnIndex="1"
+							GridPane.rowIndex="1" />
+						<TextField fx:id="txtStreet" GridPane.columnIndex="1"
+							GridPane.rowIndex="2" />
+						<TextField fx:id="txtCity" GridPane.columnIndex="1"
+							GridPane.rowIndex="3" />
+						<TextField fx:id="txtZip" GridPane.columnIndex="1"
+							GridPane.rowIndex="5" />
+						<TextField fx:id="txtPhone" GridPane.columnIndex="1"
+							GridPane.rowIndex="6" />
 						<Button fx:id="btnSave" mnemonicParsing="false" onAction="#applySaveMember"
 							prefHeight="25.0" prefWidth="97.0" text="Save"
-							GridPane.columnIndex="2" GridPane.halignment="RIGHT"
+							GridPane.columnIndex="1" GridPane.halignment="RIGHT"
 							GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-						<ComboBox fx:id="cmbState" prefHeight="25.0" prefWidth="180.0"
+						<TextField fx:id="txtState" prefHeight="31.0" prefWidth="276.0"
 							GridPane.columnIndex="1" GridPane.rowIndex="4" />
 						<Label text="First Name" />
 						<Label text="Last Name" GridPane.rowIndex="1" />
@@ -55,12 +52,10 @@
 						<Label text="Phone" GridPane.rowIndex="6" />
 					</children>
 					<columnConstraints>
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
-						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
-							prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="214.0"
+							minWidth="10.0" prefWidth="186.0" />
+						<ColumnConstraints hgrow="SOMETIMES" maxWidth="251.0"
+							minWidth="10.0" prefWidth="251.0" />
 					</columnConstraints>
 					<rowConstraints>
 						<RowConstraints minHeight="10.0" prefHeight="30.0"
@@ -81,9 +76,10 @@
 							vgrow="SOMETIMES" />
 					</rowConstraints>
 				</GridPane>
-				<Label layoutX="31.0" layoutY="-8.0" prefHeight="17.0"
-					prefWidth="77.0" style="-fx-background-color: white;" text=" Add Member" />
-				<Label fx:id="lblMessage" layoutX="17.0" layoutY="27.0" />
+				<Label layoutX="31.0" layoutY="-8.0" prefHeight="21.0"
+					prefWidth="97.0" style="-fx-background-color: white;" text=" Add Member" />
+				<Label fx:id="lblMessageAddEdit" layoutX="48.0" layoutY="22.0"
+					styleClass="error" />
 			</children>
 		</Pane>
 	</children>

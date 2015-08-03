@@ -93,7 +93,7 @@ public class AddBookController implements Initializable {
 			newStage.setTitle("Add Author Details");
 			newStage.initModality(Modality.WINDOW_MODAL);
 			newStage.initOwner(primaryStage);
-			Scene stageScene = new Scene(comp, 600, 430);
+			Scene stageScene = new Scene(comp, 460.0, 625.0);
 			newStage.setScene(stageScene);
 			newStage.showAndWait();
 		} catch (IOException e) {

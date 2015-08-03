@@ -63,11 +63,14 @@ public class Utility {
 					.getResource("../view/member/addEditMember.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 			anchorPane.getChildren().add(checkoutBook);
+			anchorPane.setLayoutX(0);
+			anchorPane.setLayoutY(0);
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	// Helper Methods
 	public static void loadSearchMembersView(AnchorPane anchorPane) {
 		try {
@@ -77,6 +80,8 @@ public class Utility {
 					.getResource("../view/member/searchMembers.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 			anchorPane.getChildren().add(checkoutBook);
+			anchorPane.setLayoutX(0);
+			anchorPane.setLayoutY(0);
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -104,6 +109,7 @@ public class Utility {
 					.getResource("../view/book/addBook.fxml"));
 			AnchorPane checkoutBook = (AnchorPane) loader.load();
 			anchorPane.getChildren().add(checkoutBook);
+			anchorPane.setPrefSize(450.0, 400.0);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

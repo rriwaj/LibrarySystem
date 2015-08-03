@@ -2,7 +2,6 @@ package ls.controller.member;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -28,7 +27,8 @@ import ls.model.LibraryMember;
 public class SearchMemberController implements Initializable {
 	@FXML
 	private AnchorPane anchorPane;
-
+	@FXML
+	private AnchorPane anchorPaneAddEdit;
 	@FXML
 	private Button btnSearch;
 	@FXML
@@ -50,38 +50,45 @@ public class SearchMemberController implements Initializable {
 	@FXML
 	private TextField txtZip;
 	@FXML
-	private TextField txtPhoneNo;
+	private TextField txtPhone;
 	@FXML
-	private ComboBox<String> cmbState;
+	private TextField txtState;
 	@FXML
 	private Label hdnText;
-
 	@FXML
 	private TableView<Member> tblMember;
 	@FXML
-	TableColumn<Member, String> colIdNumber;
+	private TableColumn<Member, String> colIdNumber;
 	@FXML
-	TableColumn<Member, String> colName;
+	private TableColumn<Member, String> colName;
 	@FXML
-	TableColumn<Member, String> colAddress;
+	private TableColumn<Member, String> colAddress;
 	@FXML
-	TableColumn<Member, String> colPhoneNo;
+	private TableColumn<Member, String> colPhoneNo;
 	@FXML
-	TableColumn<Member, String> colEdit;
+	private TableColumn<Member, String> colEdit;
+	@FXML
+	private Label lblMessage;
+	@FXML
+	private Label lblMessageAddEdit;
 
-	private String selectedMemberIdToEdit;
-	@FXML
-	Label lblMessage;
 	private DataAccess dataAccess;
+
+	private static LibraryMember member;
+	private static String memberId;
 
 	public SearchMemberController() {
 		dataAccess = Utility.getDataAcessFacadeInstance();
 	}
 
 	@FXML
-	public void searchMembers() {		
-	
-		LibraryMember mem = dataAccess.searchMember(txtMemberId.getText());		
+	public void searchMembers() {
+		lblMessage.setText("");
+		if (!validateSearchFields()) {
+			return;
+		}
+
+		LibraryMember mem = dataAccess.searchMember(txtMemberId.getText());
 		List<Member> memberForTableView = new ArrayList<Member>();
 		memberForTableView.add(new Member(mem.getMemberId(), mem.getFirstName()
 				+ " " + mem.getLastName(), mem.getAddress().toString(), mem
@@ -95,18 +102,23 @@ public class SearchMemberController implements Initializable {
 		tblMember.setItems(data);
 	}
 
+	private boolean validateSearchFields() {
+		if (txtMemberId.getText().equals("")) {
+			lblMessage.setText("Member ID: Value is required.");
+			return false;
+		}
+		return true;
+	}
+
 	@FXML
 	public void goToEditMember() {
-		try {
-			Member mem = (Member) tblMember.getSelectionModel()
-					.getSelectedItem();
-			if (mem != null) {
-				selectedMemberIdToEdit = mem.getIdNumber();
-				Utility.loadAddEditMemberView(anchorPane);
-			}
-		} catch (NullPointerException ex) {
-			lblMessage.setText("Please select the row to edit");
+		Member mem = (Member) tblMember.getSelectionModel().getSelectedItem();
+		if (mem == null) {
+			lblMessage.setText("Member selection is required.");
+			return;
 		}
+		member = dataAccess.searchMember(mem.getIdNumber());
+		Utility.loadAddEditMemberView(anchorPane);
 	}
 
 	@FXML
@@ -122,38 +134,91 @@ public class SearchMemberController implements Initializable {
 			if (allMembers != null) {
 				printAllMembersToTableView(allMembers.values());
 			}
+			if (memberId != null) {
+				if (member == null) {
+					lblMessage.setText("Library Member with id " + memberId
+							+ " added.");
+				} else {
+					lblMessage.setText("Library Member with id " + memberId
+							+ " updated.");
+				}
+			}
+			memberId = null;
+			member = null;
 		} else {
-			if (selectedMemberIdToEdit != null) {
-				PopulateEditView(dataAccess
-						.searchMember(selectedMemberIdToEdit));
+			if (member != null) {
+				PopulateEditView();
 			}
 		}
 	}
 
-	private void PopulateEditView(LibraryMember searchMember) {
-
-		txtFirstName.setText(searchMember.getFirstName());
-		txtLastName.setText(searchMember.getLastName());
-		txtStreet.setText(searchMember.getAddress().getStreet());
-		txtCity.setText(searchMember.getAddress().getCity());
-		txtZip.setText(searchMember.getAddress().getZip());
-		txtPhoneNo.setText(searchMember.getTelephone());
-		txtMemberId.setText(searchMember.getMemberId());
+	private void PopulateEditView() {
+		txtFirstName.setText(member.getFirstName());
+		txtLastName.setText(member.getLastName());
+		txtStreet.setText(member.getAddress().getStreet());
+		txtCity.setText(member.getAddress().getCity());
+		txtZip.setText(member.getAddress().getZip());
+		txtPhone.setText(member.getTelephone());
 	}
 
 	@FXML
 	public void applySaveMember() {
+		if (!validateAddEditFields()) {
+			return;
+		}
 		Address memberAddress = new Address(txtStreet.getText(),
-				txtCity.getText(), cmbState.getPromptText(), txtZip.getText());
+				txtCity.getText(), txtState.getText(), txtZip.getText());
 		HashMap<String, LibraryMember> allMember = dataAccess.readMemberMap();
 		if (allMember != null) {
-			String memberId = Integer.toString(allMember.size() + 1);
-			LibraryMember member = new LibraryMember(txtFirstName.getText(),
-					txtLastName.getText(), txtPhoneNo.getText(), memberAddress,
-					memberId);
-			dataAccess.saveNewMember(member);
-			lblMessage.setText("Library Member with id " + memberId + " added");
+			if (member == null) {
+				// add member
+				memberId = Integer.toString(allMember.size() + 1);
+				LibraryMember newMember = new LibraryMember(
+						txtFirstName.getText(), txtLastName.getText(),
+						txtPhone.getText(), memberAddress, memberId);
+				dataAccess.saveNewMember(newMember);
+			} else {
+				// edit member
+				memberId = member.getMemberId();
+				LibraryMember editedMember = new LibraryMember(
+						txtFirstName.getText(), txtLastName.getText(),
+						txtPhone.getText(), memberAddress, memberId);
+				dataAccess.saveNewMember(editedMember);
+			}
+			Utility.loadSearchMembersView(anchorPaneAddEdit);
 		}
+	}
+
+	private boolean validateAddEditFields() {
+		if (txtFirstName.getText().equals("")) {
+			lblMessageAddEdit.setText("First Name: Value is required.");
+			return false;
+		}
+		if (txtLastName.getText().equals("")) {
+			lblMessageAddEdit.setText("Last Name: Value is required.");
+			return false;
+		}
+		if (txtStreet.getText().equals("")) {
+			lblMessageAddEdit.setText("Street: Value is required.");
+			return false;
+		}
+		if (txtCity.getText().equals("")) {
+			lblMessageAddEdit.setText("City: Value is required.");
+			return false;
+		}
+		if (txtState.getText().equals("")) {
+			lblMessageAddEdit.setText("State: Value is required.");
+			return false;
+		}
+		if (txtZip.getText().equals("")) {
+			lblMessageAddEdit.setText("Zip: Value is required.");
+			return false;
+		}
+		if (txtPhone.getText().equals("")) {
+			lblMessageAddEdit.setText("Phone: Value is required.");
+			return false;
+		}
+		return true;
 	}
 
 	private void printAllMembersToTableView(Collection<LibraryMember> allMembers) {
