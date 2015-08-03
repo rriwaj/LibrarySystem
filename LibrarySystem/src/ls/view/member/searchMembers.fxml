@@ -41,10 +41,10 @@
 			<children>
 				<TableView fx:id="tblMember" layoutX="22.0" layoutY="21.0" prefHeight="200.0" prefWidth="524.0">
 					<columns>
-						<TableColumn fx:id="colIdNumber" prefWidth="87.0" text="ID Number" />
-						<TableColumn fx:id="colName" prefWidth="127.0" text="Name" />
-						<TableColumn fx:id="colAddress" prefWidth="87.0" text="Address" />
-						<TableColumn fx:id="colPhoneNo" prefWidth="130.0" text="Phone" />
+						<TableColumn fx:id="colIdNumber" prefWidth="46.0" text="ID" />
+						<TableColumn fx:id="colName" prefWidth="148.0" text="Name" />
+						<TableColumn fx:id="colAddress" prefWidth="202.0" text="Address" />
+						<TableColumn fx:id="colPhoneNo" prefWidth="126.0" text="Phone" />
 					</columns>
 				</TableView>
 				<Label layoutX="11.0" layoutY="-10.0" prefHeight="21.0" prefWidth="81.0" style="-fx-background-color: white;" text=" Table View" />

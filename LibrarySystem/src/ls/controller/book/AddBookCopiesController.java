@@ -62,9 +62,7 @@ public class AddBookCopiesController implements Initializable {
 
 			dataAccessFacade.saveNewBook(lookedUpBook);
 
-			JOptionPane.showMessageDialog(null,
-					"Book Copy(ies) added successfully.",
-					"Operation Succeeded", JOptionPane.PLAIN_MESSAGE);
+			lblMessage.setText("Book Copy(ies) added successfully.");
 		}
 
 	}

@@ -67,7 +67,7 @@ public class OverDueController implements Initializable {
 
 	@FXML
 	public void checkBookCopyOverDue() {
-		if (validateOverDueFields()) {
+		if (!validateOverDueFields()) {
 			return;
 		}
 		List<OverDueBook> overDueBookList = new ArrayList<OverDueBook>();
@@ -239,35 +239,6 @@ public class OverDueController implements Initializable {
 		colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 		tblMemberRecords.setItems(data);
 	}
-
-	//
-	// private void printCheckoutRecordEntriesHardCoded() {
-	// // OverDueBook overDueBook = new OverDueBook(book.getIsbn(),
-	// // book.getTitle());
-	// OverDueBook overDueBook = new OverDueBook("1212", "Test");
-	// List<OverDueBook> list = new ArrayList<OverDueBook>();
-	// list.add(overDueBook);
-	// ObservableList<OverDueBook> data = FXCollections
-	// .observableArrayList(list);
-	// System.out.println(list);
-	// colISBN.setCellValueFactory(new PropertyValueFactory<OverDueBook,
-	// String>(
-	// "ISBN"));
-	// colTitle.setCellValueFactory(new PropertyValueFactory<>("Title"));
-	// tblOverDueBook.setItems(data);
-	//
-	// /*
-	// * try { FXMLLoader loader = new FXMLLoader();
-	// * loader.setLocation(Main.class
-	// * .getResource("../view/checkout/searchBookCheckoutRecordEntries.fxml"
-	// * )); AnchorPane checkoutBook = (AnchorPane) loader.load();
-	// *
-	// * anchorPaneContent.getChildren().add(checkoutBook); } catch
-	// * (IOException e) { // TODO Auto-generated catch block
-	// * e.printStackTrace(); }
-	// */
-	//
-	// }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

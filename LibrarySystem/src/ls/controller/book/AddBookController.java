@@ -45,7 +45,7 @@ public class AddBookController implements Initializable {
 	private TextField txtNumberOfCopies;
 
 	DataAccessFacade dataAccessFacade;
-	private List<Author> authorsList;
+	private static List<Author> authorsList;
 
 	// Author data
 	@FXML

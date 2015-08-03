@@ -12,7 +12,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -157,6 +156,7 @@ public class SearchMemberController implements Initializable {
 		txtLastName.setText(member.getLastName());
 		txtStreet.setText(member.getAddress().getStreet());
 		txtCity.setText(member.getAddress().getCity());
+		txtState.setText(member.getAddress().getState());
 		txtZip.setText(member.getAddress().getZip());
 		txtPhone.setText(member.getTelephone());
 	}

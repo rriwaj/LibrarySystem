@@ -33,6 +33,8 @@
 							GridPane.rowIndex="2" />
 						<TextField fx:id="txtCity" GridPane.columnIndex="1"
 							GridPane.rowIndex="3" />
+						<TextField fx:id="txtState" prefHeight="31.0" prefWidth="276.0"
+							GridPane.columnIndex="1" GridPane.rowIndex="4" />
 						<TextField fx:id="txtZip" GridPane.columnIndex="1"
 							GridPane.rowIndex="5" />
 						<TextField fx:id="txtPhone" GridPane.columnIndex="1"
@@ -41,8 +43,6 @@
 							prefHeight="25.0" prefWidth="97.0" text="Save"
 							GridPane.columnIndex="1" GridPane.halignment="RIGHT"
 							GridPane.rowIndex="7" GridPane.valignment="CENTER" />
-						<TextField fx:id="txtState" prefHeight="31.0" prefWidth="276.0"
-							GridPane.columnIndex="1" GridPane.rowIndex="4" />
 						<Label text="First Name" />
 						<Label text="Last Name" GridPane.rowIndex="1" />
 						<Label text="Street" GridPane.rowIndex="2" />

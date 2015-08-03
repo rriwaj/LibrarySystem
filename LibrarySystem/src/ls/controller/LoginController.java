@@ -53,8 +53,11 @@ public class LoginController {
 					Scene scene = new Scene(root, 1000.0, 575.0);
 					st.setScene(scene);
 					st.show();
+				} else {
+					lblMessage
+							.setText("Login Failed. Invalid UserName/Password");
 				}
-				lblMessage.setText("Login Failed. Invalid UserName/Password");
+
 			} else {
 				lblMessage.setText("Please enter Username/Password");
 			}
