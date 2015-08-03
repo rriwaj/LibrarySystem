@@ -24,16 +24,16 @@ public class TestData {
 	@SuppressWarnings("serial")
 	public List<Author> allAuthors = new ArrayList<Author>() {
 		{
-			add(new Author("Joe", "Thomas", "641-445-2123", addresses.get(0),
-					"A happy man is he."));
-			add(new Author("Sandra", "Thomas", "641-445-2123",
+			add(new Author("", "Joe", "Thomas", "641-445-2123",
+					addresses.get(0), "A happy man is he."));
+			add(new Author("", "Sandra", "Thomas", "641-445-2123",
 					addresses.get(0), "A happy wife is she."));
-			add(new Author("Nirmal", "Pugh", "641-919-3223", addresses.get(1),
-					"Thinker of thoughts."));
-			add(new Author("Andrew", "Cleveland", "976-445-2232",
+			add(new Author("", "Nirmal", "Pugh", "641-919-3223",
+					addresses.get(1), "Thinker of thoughts."));
+			add(new Author("", "Andrew", "Cleveland", "976-445-2232",
 					addresses.get(2), "Author of childrens' books."));
-			add(new Author("Sarah", "Connor", "123-422-2663", addresses.get(3),
-					"Known for her clever style."));
+			add(new Author("", "Sarah", "Connor", "123-422-2663",
+					addresses.get(3), "Known for her clever style."));
 		}
 	};
 

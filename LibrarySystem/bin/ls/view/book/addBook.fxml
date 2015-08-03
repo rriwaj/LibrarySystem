@@ -1,40 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="401.0" prefWidth="437.0"
-	xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2"
+<AnchorPane fx:id="bookAnchorPane" prefHeight="401.0"
+	prefWidth="437.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
 	fx:controller="ls.controller.book.AddBookController">
 	<!-- TODO Add Nodes -->
 	<children>
-		<GridPane layoutX="59.0" layoutY="61.0" prefWidth="319.0">
+		<GridPane hgap="10.0" layoutX="59.0" layoutY="61.0"
+			prefWidth="319.0" vgap="10.0">
 			<children>
 				<Label text="ISBN" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+					GridPane.halignment="LEFT" GridPane.rowIndex="0" />
 				<Label text="Title" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-				<Label text="Authors" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+					GridPane.halignment="LEFT" GridPane.rowIndex="1" />
+				<Label text="Authors" GridPane.halignment="LEFT"
+					GridPane.rowIndex="4" />
 				<Label text="Max CheckOut Length" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+					GridPane.halignment="LEFT" GridPane.rowIndex="2" />
 				<Label text="Number Of Copies" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+					GridPane.halignment="LEFT" GridPane.rowIndex="3" />
 				<TextField fx:id="txtISBN" prefWidth="117.0"
 					GridPane.columnIndex="1" GridPane.rowIndex="0" />
 				<TextField fx:id="txtTitle" prefWidth="200.0"
 					GridPane.columnIndex="1" GridPane.rowIndex="1" />
 				<TextField fx:id="txtMaxCheckOutLength" prefWidth="200.0"
-					GridPane.columnIndex="1" GridPane.rowIndex="3" />
+					GridPane.columnIndex="1" GridPane.rowIndex="2" />
 				<TextField fx:id="txtNumberOfCopies" prefWidth="200.0"
-					GridPane.columnIndex="1" GridPane.rowIndex="4" />
-					<Label fx:id="lblMessage" text="ISBN" GridPane.columnIndex="0"
-					GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-				<Button mnemonicParsing="false" prefWidth="149.0"
-					text="Add Author" GridPane.columnIndex="1" GridPane.halignment="CENTER"
-					GridPane.rowIndex="2" onAction="#btnAuthorClick" />
+					GridPane.columnIndex="1" GridPane.rowIndex="3" />
+				<Button mnemonicParsing="false" onAction="#btnAuthorClick"
+					prefHeight="31.0" prefWidth="175.0" text="Add Author"
+					GridPane.columnIndex="1" GridPane.halignment="CENTER"
+					GridPane.rowIndex="4" />
+				<Button fx:id="btnSave" mnemonicParsing="false" onAction="#applySaveBook"
+					prefHeight="48.0" prefWidth="90.0" text="Save"
+					GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="6" />
 			</children>
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
@@ -53,9 +58,16 @@
 					vgrow="SOMETIMES" />
 				<RowConstraints minHeight="10.0" prefHeight="30.0"
 					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints />
 			</rowConstraints>
+			<opaqueInsets>
+				<Insets />
+			</opaqueInsets>
 		</GridPane>
-		<Button fx:id="btnSave" layoutX="222.0" layoutY="271.0"
-			mnemonicParsing="false" prefHeight="48.0" prefWidth="77.0" text="Save"  onAction="#btnSaveClick"/>
+		<Label fx:id="lblMessage" styleClass="error" layoutX="59.0" layoutY="32.0" />
 	</children>
 </AnchorPane>
