@@ -71,21 +71,15 @@ public class AddBookCopiesController implements Initializable {
 
 	private boolean validateFields() {
 		if (txtISBNNo.getText().equals("")) {
-			JOptionPane.showConfirmDialog(null,
-					"Book ISBN: Value is required.", "Error",
-					JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+			lblMessage.setText("Book ISBN: Value is required.");
 			return false;
 		}
 		if (txtNumberOfCopies.getText().equals("")) {
-			JOptionPane.showConfirmDialog(null,
-					"Number of Copies: Value is required.", "Error",
-					JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+			lblMessage.setText("Number of Copies: Value is required.");
 			return false;
 		}
 		if (!txtNumberOfCopies.getText().matches("[0-9]*")) {
-			JOptionPane.showConfirmDialog(null,
-					"Number of Copies: Numeric value is required.", "Error",
-					JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+			lblMessage.setText("Number of Copies: Numeric value is required.");
 			return false;
 		}
 		return true;

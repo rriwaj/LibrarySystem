@@ -1,4 +1,4 @@
-package ls.controller.common;
+package ls.common;
 
 public class CommonConfigurations {
 

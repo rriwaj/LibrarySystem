@@ -5,18 +5,41 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane"
-	fx:controller="ls.controller.book.AddBookCopiesController" prefHeight="241.0"
-	prefWidth="384.0000999999975" xmlns:fx="http://javafx.com/fxml/1"
-	xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane fx:id="anchorPane" prefHeight="241.0" prefWidth="384.0000999999975"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="ls.controller.book.AddBookCopiesController">
 	<children>
-		<Label layoutX="133.0" layoutY="89.0" text="Book ISBN" />
-		<Label layoutX="44.0" layoutY="129.0" text="Number Of Copies" />
-		<TextField layoutX="184.0" layoutY="89.0" prefWidth="117.0"
-			fx:id="txtISBNNo" />
-		<TextField layoutX="184.0" layoutY="129.0" prefWidth="117.0"
-			fx:id="txtNumberOfCopies" />
-		<Button layoutX="184.0" layoutY="182.0" mnemonicParsing="false"
-			text="Add" fx:id="btnAdd" onAction="#btnBookCopyadded" />
+		<Label fx:id="lblMessage" styleClass="error" layoutX="33.0"
+			layoutY="26.0" />
+		<GridPane hgap="10.0" layoutX="33.0" layoutY="53.0"
+			prefHeight="155.0" prefWidth="319.0" vgap="10.0">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+					prefWidth="100.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+					prefWidth="100.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0"
+					vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Label text="Book ISBN" />
+				<TextField fx:id="txtISBNNo" prefWidth="117.0"
+					GridPane.columnIndex="1" />
+				<TextField fx:id="txtNumberOfCopies" prefWidth="117.0"
+					GridPane.columnIndex="1" GridPane.rowIndex="1" />
+				<Label text="Number Of Copies" GridPane.rowIndex="1" />
+				<Button fx:id="btnAdd" mnemonicParsing="false" onAction="#btnBookCopyadded"
+					text="Add" GridPane.columnIndex="1" GridPane.halignment="RIGHT"
+					GridPane.rowIndex="3" />
+			</children>
+		</GridPane>
 	</children>
 </AnchorPane>
